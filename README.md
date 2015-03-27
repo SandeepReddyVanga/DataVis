@@ -5,7 +5,7 @@ MSAN 622 Information Visualization
 |  **Name:** | Sandeep Vanga           |
 |-----------:|:------------------------|
 | **Email:** | <svanga@usfca.edu>      |
-|   **Web:** | <http://sandeepv.github.io/spring-2015-msan622> |
+|   **Web:** | <http://sandeepreddyvanga.github.io/spring-2015-msan622> |
 
 ## About Me ##
 
