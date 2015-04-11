@@ -41,13 +41,13 @@
     </div>
 
 
-    <p>Code for this home work can be found <a href="https://github.com/SandeepReddyVanga/DataVis/HomeWork1">here</a>.</p>
+    <p>Code for this home work can be found <a href="https://github.com/SandeepReddyVanga/DataVis/tree/gh-pages/HomeWork1">here</a>.</p>
 
     
 </div>
 
-<button id="Sort by Value" onclick="sortBars()">Sort by Value</button>
-<button id="Sort by Alphabet" onclick="reset()">Sort by Alphabet</button>
+<button id="Sort by Value" style="background-color:lightgreen" onclick="sortBars()" align = "center">Sort by Value </button>
+<button id="Sort by Alphabet" style="background-color:lightgreen" onclick="reset()" align = "center">Sort by Alphabet </button>
 
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -145,7 +145,7 @@ svg.append("g")
     .call(yAxis)
   .append("text")
     .attr("transform", "rotate(-90)")
-    .attr("y", 6)
+    //.attr("y", 6)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Count");
