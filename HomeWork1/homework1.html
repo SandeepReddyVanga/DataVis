@@ -28,6 +28,11 @@
   display: none;
 }
 
+.y.axis text {
+    font-family: times;
+    font-size: 14px;
+}
+
 </style>
 <body>
 
@@ -145,7 +150,7 @@ svg.append("g")
     .call(yAxis)
   .append("text")
     .attr("transform", "rotate(-90)")
-    //.attr("y", 6)
+    .attr("y", 6)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Count");
@@ -223,11 +228,11 @@ d3.select("#Sort by Alphabet").on("click", reset);
         <h3> Customization </h3>
 
         <ol type="1">
-          <li>Number of Y-Axis tick labels is changed to 3</li>
-          <li>Size of inner and outer tick labes of Y-Axis differs</li>
-          <li>Number of decimal points displayed on Y-Axis is changed</li>
+          <li>Font type and size (times and 14) of Y-Axis tick labels is changed</li>
+          <li>Length of inner and outer tick marks of Y-Axis differs</li>
+          <li>Number of decimal points displayed on Y-Axis is changed to 2</li>
           <li>Vowels are displayed in steel blue color and consonants are displayed in light blue</li>
-          <li>Letters are sorted by alphabet to begin with</li>
+          <li>Letters are sorted in alphabetical order to begin with</li>
         </ol>
 
         <h2>B-level Functionality</h2>
@@ -245,7 +250,7 @@ d3.select("#Sort by Alphabet").on("click", reset);
 
         <h2> Discussion </h2>
 
-        <p> This visualization displays count of alphabets obtained from query string. In case the query string obtained from URL is empty, The default query string is "Default Letters". I chose to display Vowels in steel blue and consonants in light blue to differentiate between them. I also reduced the number of ticks down to 3 as the exact count value is displayed when mouse is hovered on the bar. I added two seperate buttons to sort by value or alphabet.</p>
+        <p> This visualization displays count of alphabets obtained from query string. In case the query string obtained from URL is empty, The default query string is "Default Letters". I chose to display Vowels in steel blue and consonants in light blue to differentiate between them. I also increased the font size of Y-Axis tick labels. I added two seperate buttons to sort by value or alphabet.</p>
 
 
 
