@@ -150,7 +150,7 @@ svg.append("g")
     .call(yAxis)
   .append("text")
     .attr("transform", "rotate(-90)")
-    .attr("y", 6)
+    .attr("y", -30)
     .attr("dy", ".71em")
     .style("text-anchor", "end")
     .text("Count");
@@ -231,6 +231,7 @@ d3.select("#Sort by Alphabet").on("click", reset);
           <li>Font type and size (times and 14) of Y-Axis tick labels is changed</li>
           <li>Length of inner and outer tick marks of Y-Axis differs</li>
           <li>Number of decimal points displayed on Y-Axis is changed to 2</li>
+          <li> Position of Y-Axis label is changed </li>
           <li>Vowels are displayed in steel blue color and consonants are displayed in light blue</li>
           <li>Letters are sorted in alphabetical order to begin with</li>
         </ol>
