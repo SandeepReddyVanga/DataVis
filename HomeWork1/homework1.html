@@ -200,11 +200,6 @@ svg.selectAll(".bar")
     .data(data)
   .enter().append("rect")
     .attr("class", "bar")
-    .attr("x", function(d) { return x(d.letter); })
-    .attr("width", x.rangeBand())
-    .attr("y", function(d) { return y(d.count); })
-    .attr("height", function(d) { return height - y(d.count); })
-    .style("fill", function(d) { return d.color; })
     .on('mouseover', tip.show)
     /*.on('mouseover', function(){
       
@@ -212,7 +207,19 @@ svg.selectAll(".bar")
       .style("opacity", .1)
       .style("fill", "red")
     })*/
-    .on('mouseout', tip.hide);
+    .on('mouseout', tip.hide)
+    .attr("x", function(d) { return x(d.letter); })
+    .attr("width", x.rangeBand())
+    .attr("height", function(d) { return 0; })
+    .transition().delay(function (d,i){ return i * 300;})
+    .duration(300)
+    .attr("y", function(d) { return y(d.count); })
+    .attr("height", function(d) { return height - y(d.count); })
+    
+    //.attr("y", function(d) { return y(d.count); })
+    //.attr("height", function(d) { return height - y(d.count); })
+    .style("fill", function(d) { return d.color; });
+    
     /*.on('mouseout', function(d){
 
       d3.select(this).attr("r", 10)
@@ -220,6 +227,16 @@ svg.selectAll(".bar")
       .style("fill", function(d) { return d.color; })
       
     });*/
+
+/*svg.selectAll("rect")
+                  .append("animate")
+                  .attr("attributeName","y")
+                  .attr("attributeType","XML")
+                  .attr("begin","0s")
+                  .attr("dur","1s")
+                  .attr("fill","freeze")
+                  .attr("from",0)
+                  .attr("to",function(d){return y(d.count);} );*/
 
 function type(d) {
   d.count = +d.count;
@@ -303,7 +320,7 @@ d3.select("#Sort by Alphabet").on("click", reset);
         <h2>A-level Functionality</h2>
 
         <ul style="list-style-type:disc">
-          <li></li>
+          <li>At the start of your visualization, one bar is shown at a time and each bar is smoothly displayed from the top to bottom</li>
         </ul>
 
 
