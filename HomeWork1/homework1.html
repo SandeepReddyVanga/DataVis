@@ -33,6 +33,35 @@
     font-size: 14px;
 }
 
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
 </style>
 <body>
 
@@ -56,6 +85,7 @@
 
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
 <script>
 
 // function getParameterByName(name) {
@@ -130,11 +160,20 @@ var yAxis = d3.svg.axis()
     .tickSize(8,12)
     .tickFormat(d3.format(".2f"));
 
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Count:</strong> <span style='color:red'>" + d.count + "</span>";
+  })
+
 var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
 
 
 x.domain(data.map(function(d) { return d.letter; }));
@@ -150,8 +189,8 @@ svg.append("g")
     .call(yAxis)
   .append("text")
     .attr("transform", "rotate(-90)")
-    .attr("x", -150)
-    .attr("y", -45)
+    .attr("x", -100)
+    .attr("y", -40)
     .attr("dy", ".7em")
     .style("text-anchor", "end")
     .text("Count");
@@ -164,7 +203,22 @@ svg.selectAll(".bar")
     .attr("width", x.rangeBand())
     .attr("y", function(d) { return y(d.count); })
     .attr("height", function(d) { return height - y(d.count); })
-    .style("fill", function(d) { return d.color; });
+    .style("fill", function(d) { return d.color; })
+    .on('mouseover', tip.show)
+    /*.on('mouseover', function(){
+      
+      d3.select(this).attr("r", 10)
+      .style("opacity", .1)
+      .style("fill", "red")
+    })*/
+    .on('mouseout', tip.hide);
+    /*.on('mouseout', function(d){
+
+      d3.select(this).attr("r", 10)
+      .style("opacity", 1.0)
+      .style("fill", function(d) { return d.color; })
+      
+    });*/
 
 function type(d) {
   d.count = +d.count;
@@ -229,10 +283,10 @@ d3.select("#Sort by Alphabet").on("click", reset);
         <h3> Customization </h3>
 
         <ol type="1">
-          <li>Font type and size (times and 14) of Y-Axis tick labels is changed</li>
+          <li>Font family and size ("times" and "14") of Y-Axis tick labels is altered</li>
           <li>Length of inner and outer tick marks of Y-Axis differs</li>
           <li>Number of decimal points displayed on Y-Axis is changed to 2</li>
-          <li> Position of Y-Axis label is changed </li>
+          <li>Position of Y-Axis label is changed</li>
           <li>Vowels are displayed in steel blue color and consonants are displayed in light blue</li>
           <li>Letters are sorted in alphabetical order to begin with</li>
         </ol>
@@ -241,6 +295,7 @@ d3.select("#Sort by Alphabet").on("click", reset);
 
         <ul style="list-style-type:disc">
           <li>Two buttons are added. One is "Sort by Value" and the other is "Sort by Alphabet". The functionality is obvious from the name of the button.</li>
+          <li>Added a tooltip that shows the exact value of a bar when hovering over it</li>
         </ul>
 
         <h2>A-level Functionality</h2>
@@ -252,7 +307,7 @@ d3.select("#Sort by Alphabet").on("click", reset);
 
         <h2> Discussion </h2>
 
-        <p> This visualization displays count of alphabets obtained from query string. In case the query string obtained from URL is empty, The default query string is "Default Letters". I chose to display Vowels in steel blue and consonants in light blue to differentiate between them. I also increased the font size of Y-Axis tick labels. I added two seperate buttons to sort by value or alphabet.</p>
+        <p> This visualization displays count of alphabets obtained from query string. In case the query string obtained from URL is empty, The default query string is "Default Letters". I chose to display Vowels in steel blue and consonants in light blue to differentiate between them. I also increased the font size of Y-Axis tick labels. I added two seperate buttons to sort by value or alphabet. When mouse is hovered over the bar, the exact count is displayed using tool tip. </p>
 
 
 
