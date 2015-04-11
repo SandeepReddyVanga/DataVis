@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<title>Home Work1</title>
+
+<style>
+
+/*.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: orange;
+}*/
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+<body>
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h1>Home Work 1</h1>
+    </div>
+
+    <div class="container" align="right">
+        <h2>Sandeep Vanga</h2>
+    </div>
+
+
+    <p>Code for this home work can be found <a href="https://github.com/SandeepReddyVanga/DataVis/HomeWork1">here</a>.</p>
+
+    
+</div>
+
+<button id="Sort by Value" onclick="sortBars()">Sort by Value</button>
+<button id="Sort by Alphabet" onclick="reset()">Sort by Alphabet</button>
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+// function getParameterByName(name) {
+//     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+//     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+//         results = regex.exec(location.search);
+//     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+// }
+
+// var prodId = getParameterByName('prodId');
+
+var cur_str = window.location.search.slice(1);
+
+if (cur_str == ""){
+  cur_str = "Default Letters"
+}
+
+cur_str = cur_str.toLowerCase();
+var decoded_str = decodeURI(cur_str);
+decoded_str = decoded_str.replace(/[^A-Za-z]/g, "");
+
+var letterCount = {};
+for (i = 0; i<decoded_str.length; i++){
+  var let = decoded_str[i]
+  if (let in letterCount) {
+    letterCount[let] = letterCount[let] + 1;
+  }
+  else {
+    letterCount[let] = 1; 
+  }
+}
+
+console.log(letterCount)
+
+function isVowel( let ){ return 'aeiou'.indexOf(let) !== -1 };
+
+var data = [];
+for (var key in letterCount){
+  var sub = {};
+  sub["letter"]=key;
+  sub["count"]=letterCount[key];
+  if( isVowel(key)){
+    sub["color"] = "steelblue"
+  } else{
+    sub["color"] = "lightblue"
+  }
+  
+  data.push(sub);
+}
+
+data.sort(function(a,b){return d3.ascending(a.letter, b.letter);});
+
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .ticks(3)
+    .tickSize(8,12)
+    .tickFormat(d3.format(".2f"));
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+x.domain(data.map(function(d) { return d.letter; }));
+y.domain([0, d3.max(data, function(d) { return d.count; })]);
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+  .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Count");
+
+svg.selectAll(".bar")
+    .data(data)
+  .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d) { return x(d.letter); })
+    .attr("width", x.rangeBand())
+    .attr("y", function(d) { return y(d.count); })
+    .attr("height", function(d) { return height - y(d.count); })
+    .style("fill", function(d) { return d.color; });
+
+function type(d) {
+  d.count = +d.count;
+  return d;
+}
+
+var sortOrder = false;
+
+function change () {
+    // Copy-on-write since tweens are evaluated after a delay.
+    var x0 = x.domain(data.sort(sortOrder
+        ? function(a, b) { return b.count - a.count; }
+        : function(a, b) { return d3.ascending(a.letter, b.letter); })
+        .map(function(d) { return d.letter; }))
+        .copy();
+
+    //console.log(x0)
+
+    svg.selectAll(".bar")
+        .sort(function(a, b) { return x0(a.letter) - x0(b.letter); });
+
+    var transition = svg.transition().duration(750),
+        delay = function(d, i) { return i * 50; };
+
+    transition.selectAll(".bar")
+        .delay(delay)
+        .attr("x", function(d) { return x0(d.letter); });
+
+    transition.select(".x.axis")
+        .call(xAxis)
+      .selectAll("g")
+        .delay(delay);
+  }
+
+function sortBars(){
+  sortOrder = true
+  change()
+}
+
+function reset(){
+  sortOrder = false
+  change()
+}
+
+d3.select("#Sort by Value").on("click", sortBars);
+d3.select("#Sort by Alphabet").on("click", reset);
+
+
+</script>
+
+<div class="jumbotron">
+    <div class="container" align = "justify">
+        <h2>C-level Functionality</h2>
+
+        <ul style="list-style-type:disc">
+          <li>Query string is obtained from page URL, decoded and converted to lower case</li>
+          <li>Spaces, punctuations and special characters are ignored and letter counts are obtianed</li>
+          <li>Letters and corresponding counts are logged to the console</li>
+          <li>Basic Bar chart is of these counts is constructed</li>
+        </ul>
+
+        <h3> Customization </h3>
+
+        <ol type="1">
+          <li>Number of Y-Axis tick labels is changed to 3</li>
+          <li>Size of inner and outer tick labes of Y-Axis differs</li>
+          <li>Number of decimal points displayed on Y-Axis is changed</li>
+          <li>Vowels are displayed in steel blue color and consonants are displayed in light blue</li>
+          <li>Letters are sorted by alphabet to begin with</li>
+        </ol>
+
+        <h2>B-level Functionality</h2>
+
+        <ul style="list-style-type:disc">
+          <li>Two buttons are added. One is "Sort by Value" and the other is "Sort by Alphabet". The functionality is obvious from the name of the button.</li>
+        </ul>
+
+        <h2>A-level Functionality</h2>
+
+        <ul style="list-style-type:disc">
+          <li></li>
+        </ul>
+
+
+        <h2> Discussion </h2>
+
+        <p> This visualization displays count of alphabets obtained from query string. In case the query string obtained from URL is empty, The default query string is "Default Letters". I chose to display Vowels in steel blue and consonants in light blue to differentiate between them. I also reduced the number of ticks down to 3 as the exact count value is displayed when mouse is hovered on the bar. I added two seperate buttons to sort by value or alphabet.</p>
+
+
+
+    </div>
+</div>
+
+
+</body>
