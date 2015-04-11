@@ -139,7 +139,7 @@ for (var key in letterCount){
 data.sort(function(a,b){return d3.ascending(a.letter, b.letter);});
 
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
+var margin = {top: 60, right: 20, bottom: 30, left: 50},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
@@ -156,7 +156,8 @@ var xAxis = d3.svg.axis()
 var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
-    .ticks(3)
+    .ticks(5)
+    .tickValues([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29])
     .tickSize(8,12)
     .tickFormat(d3.format(".2f"));
 
@@ -189,7 +190,7 @@ svg.append("g")
     .call(yAxis)
   .append("text")
     .attr("transform", "rotate(-90)")
-    .attr("x", -100)
+    .attr("x", -70)
     .attr("y", -40)
     .attr("dy", ".7em")
     .style("text-anchor", "end")
@@ -277,15 +278,16 @@ d3.select("#Sort by Alphabet").on("click", reset);
           <li>Query string is obtained from page URL, decoded and converted to lower case</li>
           <li>Spaces, punctuations and special characters are ignored and letter counts are obtianed</li>
           <li>Letters and corresponding counts are logged to the console</li>
-          <li>Basic Bar chart is of these counts is constructed</li>
+          <li>Basic Bar chart of these counts is constructed</li>
         </ul>
 
         <h3> Customization </h3>
 
         <ol type="1">
-          <li>Font family and size ("times" and "14") of Y-Axis tick labels is altered</li>
+          <li>Frequency of Y-Axis tick labels is modified</li>
+          <li>Number of decimal points of Y-Axis tick labels is changed to 2</li>
+          <li>Font family and size of Y-Axis tick labels is altered</li>
           <li>Length of inner and outer tick marks of Y-Axis differs</li>
-          <li>Number of decimal points displayed on Y-Axis is changed to 2</li>
           <li>Position of Y-Axis label is changed</li>
           <li>Vowels are displayed in steel blue color and consonants are displayed in light blue</li>
           <li>Letters are sorted in alphabetical order to begin with</li>
@@ -307,7 +309,8 @@ d3.select("#Sort by Alphabet").on("click", reset);
 
         <h2> Discussion </h2>
 
-        <p> This visualization displays count of alphabets obtained from query string. In case the query string obtained from URL is empty, The default query string is "Default Letters". I chose to display Vowels in steel blue and consonants in light blue to differentiate between them. I also increased the font size of Y-Axis tick labels. I added two seperate buttons to sort by value or alphabet. When mouse is hovered over the bar, the exact count is displayed using tool tip. </p>
+        <p>This visualization displays count of alphabets obtained from query string. In case the query string is empty, The default query string used is "Default Letters". I chose to display Vowels in steel blue and consonants in light blue to differentiate between them.</p>
+        <p>I also increased the font size of Y-Axis tick labels. I reduced the frequency of tick labels on Y-Axis as I 'm displaying the exact count when mouse is hovered over the bar. I used tool tip and red-colored text to highlight exact count of the bar. I added two seperate buttons to sort the bars by value or alphabet.</p>
 
 
 
