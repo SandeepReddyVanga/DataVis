@@ -23,7 +23,7 @@
 }
 
 .y.axis text {
-    font-family: times;
+    font-family: courier;
     font-size: 14px;
 }
 
@@ -36,7 +36,6 @@
   border-radius: 2px;
 }
 
- Creates a small triangle extender for the tooltip 
 .d3-tip:after {
   box-sizing: border-box;
   display: inline;
@@ -55,6 +54,16 @@
   left: 0;
 }
 
+circle {
+  fill-opacity: .75;
+}
+
+.legend rect {
+          fill:white;
+          stroke:black;
+          opacity:0.8;}
+        }
+
 </style>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -68,7 +77,7 @@
 
   <div class="row offset">
         <div class="col-lg-11 col-sm-offset-1" id="svg1" >
-          <svg id="area1" width=800 height=800 ></svg>
+          <svg id="area1" width=1000 height=800 ></svg>
         </div>
   </div>
 
@@ -88,7 +97,7 @@
   <script>
 
   var svg=document.getElementById('area1');
-  bubble_chart("area1","svg1",svg.height.baseVal.value,svg.width.baseVal.value);
+  bubble_chart("svg1",svg.height.baseVal.value,svg.width.baseVal.value);
 
 
   </script>
