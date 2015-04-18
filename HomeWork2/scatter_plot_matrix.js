@@ -1,7 +1,7 @@
 function scatter_plot_matrix(id,height,width) {
 
   var size = 200,
-    padding = 20;
+    padding = 35;
 
 var x = d3.scale.linear()
     .range([padding / 2, size - padding / 2]);
@@ -27,7 +27,7 @@ d3.csv("state.x77.csv", function(error, data) {
       n = traits.length;
 
   traits.forEach(function(trait) {
-    domainByTrait[trait] = d3.extent(data, function(d) { return d[trait]; });
+    domainByTrait[trait] = d3.extent(data, function(d) { return +d[trait]; });
   });
 
   xAxis.tickSize(size * n);
@@ -35,9 +35,9 @@ d3.csv("state.x77.csv", function(error, data) {
 
   var svg = d3.selectAll("#"+id).select("svg")
               .attr("width", size * n + padding)
-            .attr("height", size * n + padding)
+            .attr("height", size * n + 5*padding)
             .append("g")
-            .attr("transform", "translate(" + padding + "," + padding / 2 + ")");
+            .attr("transform", "translate(" + padding + "," + 3*padding + ")");
 
   svg.selectAll(".x.axis2")
       .data(traits)
@@ -86,6 +86,7 @@ d3.csv("state.x77.csv", function(error, data) {
         .attr("cx", function(d) { return x(d[p.x]); })
         .attr("cy", function(d) { return y(d[p.y]); })
         .attr("r", 3)
+        .attr("data-legend",function(d) { return d.region})
         .style("fill", function(d) { return color(d.region); });
   }
 
@@ -96,11 +97,17 @@ d3.csv("state.x77.csv", function(error, data) {
   }
 
   svg.append("text")
-      .attr("x", (width / 2))             
+      .attr("x", 400)             
       .attr("y", 0 - (padding/2))
       .attr("text-anchor", "middle")  
       .style("font-size", "40px") 
       .text("Scatter Plot Matrix");
+
+  legend = svg.append("g")
+      .attr("class","legend")
+      .attr("transform","translate(650,-30)")
+      .style("font-size","10px")
+      .call(d3.legend);
 
   d3.select(self.frameElement).style("height", size * n + padding + 20 + "px");
 });
