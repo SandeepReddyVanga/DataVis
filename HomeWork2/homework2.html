@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+
+<title>Home Work2 - Multivariate Data Visualization</title>
+
+<style>
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.y.axis text {
+    font-family: times;
+    font-size: 14px;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+ Creates a small triangle extender for the tooltip 
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<script src="d3.legend.js"></script>
+<script src="bubble_chart.js"></script>
+
+</head>
+
+<body>
+
+  <div class="row offset">
+        <div class="col-lg-11 col-sm-offset-1" id="svg1" >
+          <svg id="area1" width=800 height=800 ></svg>
+        </div>
+  </div>
+
+  <div class="row offset">
+       
+      <div class="col-lg-11  col-sm-offset-1" id="svg2" >
+        <svg id="area2" width=800 height=800 ></svg>
+      </div>
+  </div>
+            
+  <div class="row offset">
+      <div class="col-lg-11 col-sm-offset-1" id="svg3" >
+        <svg id="area3" width=860 height=800 ></svg>
+      </div>
+  </div>
+
+  <script>
+
+  var svg=document.getElementById('area1');
+  bubble_chart("area1","svg1",svg.height.baseVal.value,svg.width.baseVal.value);
+
+
+  </script>
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h1>Home Work2 - Multivariate Data Visualization</h1>
+    </div>
+
+    <div class="container" align="right">
+        <h2>Sandeep Vanga</h2>
+    </div>
+
+
+    <p>Code for this visualization can be found <a href="https://github.com/SandeepReddyVanga/DataVis/tree/gh-pages/HomeWork2">here</a>.</p>
+
+    
+</div>
+
+<div class="jumbotron">
+    <div class="container" align = "justify">
+        <h2>C-level Functionality</h2>
+
+        <ul style="list-style-type:disc">
+          <li>Bubble Chart</li>
+        </ul>
+
+        <h2>B-level Functionality</h2>
+
+        <ul style="list-style-type:disc">
+          <li>Scatter plot Matrix</li>
+        </ul>
+
+        <h2>A-level Functionality</h2>
+
+        <ul style="list-style-type:disc">
+          <li>Parallel Coordinates</li>
+        </ul>
+
+
+        <h2> Discussion </h2>
+
+        <p></p>
+
+
+
+    </div>
+</div>
+
+
+</body>
