@@ -88,6 +88,38 @@ y.axis text {
   stroke: #aaa;
 }
 
+.background path {
+  fill: none;
+  stroke: #ccc;
+  stroke-opacity: .4;
+  shape-rendering: crispEdges;
+}
+
+.foreground path {
+  fill: none;
+  stroke: brown;
+  stroke-opacity: .7;
+}
+
+.brush .extent {
+  fill-opacity: .3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.axis3 line,
+.axis3 path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis3 text {
+  text-shadow: 0 1px 0 #fff;
+  cursor: move;
+}
+
+
 </style>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -95,6 +127,7 @@ y.axis text {
 <script src="d3.legend.js"></script>
 <script src="bubble_chart.js"></script>
 <script src="scatter_plot_matrix.js"></script>
+<script src="parallel_coord.js"></script>
 
 </head>
 
@@ -115,7 +148,7 @@ y.axis text {
             
   <div class="row offset">
       <div class="col-lg-11 col-sm-offset-1" id="svg3" align="center">
-        <svg id="area3" width=860 height=800 ></svg>
+        <svg id="area3" width=960 height=600 ></svg>
       </div>
   </div>
 
@@ -126,6 +159,9 @@ y.axis text {
 
   var svg=document.getElementById('area2');
   scatter_plot_matrix("svg2",svg.height.baseVal.value,svg.width.baseVal.value);
+
+  var svg=document.getElementById('area3');
+  parallel_coord("svg3",svg.height.baseVal.value,svg.width.baseVal.value);
 
 
   </script>
@@ -162,7 +198,7 @@ y.axis text {
         <h2>B-level Functionality</h2>
           <h3>Scatter plot Matrix</h3>
           <ul style="list-style-type:disc">
-            <li>Illiteracy Vs Murder rate Vs High School Graduates Vs Life Expectancy across USA</li>
+            <li>Illiteracy Vs Murder rate Vs % of High School Graduates Vs Life Expectancy across USA</li>
             <li>Each bubble represents a state</li>
             <li>Each color represents different region</li>
             <li>Grid lines are provided to connect cells</li>
@@ -173,13 +209,15 @@ y.axis text {
           <h3>Parallel Coordinates</h3>
 
           <ul style="list-style-type:disc">
-            
+            <li>Illiteracy Vs Murder rate Vs % of High School Graduates across USA</li>
+            <li>Brushing is implemented to highlight certain coordinates</li>
           </ul>
 
         <h2> Functionality Discussion </h2>
 
         <p>Colors are chosen carefully to differenitate between the regions. In case of bubble chart, tool tip is provided to highlight the information related to given state. Tool tip text color is purposefully chosen as red to grab attention. 
-        <p>Legends are provided to decode different colors. In case of scatter plot matrix, Spacing between different cells is optimized to improve aesthetics.</p>
+        <p>In case of scatter plot matrix, Spacing between different cells is optimized to improve aesthetics. Legends are provided to decode different colors. </p>
+        <p>In parallel coordinates, specific coordinates can be highlighted using mouse (brushing).</p>
 
 
 
