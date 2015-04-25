@@ -146,7 +146,7 @@ y.axis text {
         <h2>Data Preprocessing</h2>
 
         <ul style="list-style-type:disc">
-              <li>SeatBelts Data taken from R</li>
+              <li>seatBelts Data taken from R</li>
               <li>Converted time series data to CSV</li>
               <li>Added a date column</li>
               <li>Modified some column names</li>
@@ -161,37 +161,53 @@ y.axis text {
               <li>Driver, Front-seat and Back-seat passenger deaths/injuries</li>
           </ul>
 
-          <h3>Stacked Area Plot</h3>
+          <h3>Area Plot</h3>
 
           <ul style="list-style-type:disc">
-              <li>Driver, Front-seat and Back-seat passenger deaths/injuries</li>
+              <li>Petrol Price</li>
           </ul>
 
         <h2>B-level Functionality</h2>
-          <h3>Zooming</h3>
-          <ul style="list-style-type:disc">
-            
-          </ul>
 
           <h3>Details-on-Demand</h3>
           <ul style="list-style-type:disc">
-            
+            <li>Exact values of "Driver, Front-seat and Back-seat passenger deaths/injuries" are displayed on mouse hover in Multi-Series Line Plot</li>
           </ul>
+          <h3>Zooming</h3>
+          <ul style="list-style-type:disc">
+            <li>Using brush, pan functionality; particular duration can be selected in the lower part of area plot which triggers zooming in the upper part</li>
+          </ul>
+
+          
 
         <h2>A-level Functionality</h2>
 
           <h3>Filtering</h3>
 
           <ul style="list-style-type:disc">
+            <li> Variables can be selected/deselected by clicking on corresponding small rectangular boxes in the upper right corner of Multi-Series Line Plot</li>
 
           </ul>
 
-        <h2>How to use Interactivity</h2>
+        <h2> Guidelines to use Interactivity</h2>
+
+        <h3>Multi-Series Line Plot</h3>
+
+          <ul style="list-style-type:disc">
+              <li> On Mouse hover, the date and variable values are displayed </li>
+              <li> Also, by clcking on rectangular boxes in upper right corner, corresponding line plot is toggled </li>
+          </ul>
+
+          <h3>Area Plot</h3>
+
+          <ul style="list-style-type:disc">
+              <li> We can zoom in to particular duration by using brushing and panning in the lower area plot</li>
+          </ul>
 
         <h2> Functionality Discussion </h2>
 
-        <p> </p>
-        <p> </p>
+        <p> "Driver Deaths" is selected by default in Multi-Series Line Plot. Each line plot can be selected/deselected using corresponding rectangular box in upper right corner. The range of Y-axis is automatically determined based on the line plots selected. Particular line plot is highlighted by placing mouse cursor on the corresponding rectangular box.</p>
+        <p> Brushing and panning can be used to select a particular duration in the lower part of area plot and corresponding focussed region appears in the upper part of the area plot.</p>
 
 
 
