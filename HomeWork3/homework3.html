@@ -21,7 +21,16 @@ body {
   font: 10px sans-serif;
 }
 
+.area {
+  fill: orange;
+  clip-path: url(#clip);
+}
 
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
 
 .line {
   fill: none;
@@ -157,13 +166,7 @@ y.axis text {
   <div class="row offset">
        
       <div class="col-lg-11  col-sm-offset-1" id="svg2" align="center">
-        <svg id="area2" width=1200 height=1200 ></svg>
-      </div>
-  </div>
-            
-  <div class="row offset">
-      <div class="col-lg-11 col-sm-offset-1" id="svg3" align="center">
-        <svg id="area3" width=960 height=600 ></svg>
+        <svg id="area2" width=1000 height=500 ></svg>
       </div>
   </div>
 
@@ -171,6 +174,9 @@ y.axis text {
 
   var svg=document.getElementById('area1');
   multiseries_line("svg1",svg.height.baseVal.value,svg.width.baseVal.value);
+
+  var svg=document.getElementById('area2');
+  stacked_area("svg2",svg.height.baseVal.value,svg.width.baseVal.value);
 
 
   </script>
