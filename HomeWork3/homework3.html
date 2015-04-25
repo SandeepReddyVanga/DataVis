@@ -19,6 +19,55 @@ body {
 },
 .axis {
   font: 10px sans-serif;
+},
+.axis1 path,
+.axis1 line {
+  fill: none;
+  stroke: #E6E7E8;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path, .x.axis1 path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+y.axis text {
+    font-family: courier;
+    font-size: 14px;
+}
+
+.legend-box {
+  cursor: pointer;  
+}
+
+#mouse-tracker {
+  stroke: #E6E7E8;
+  stroke-width: 1px;
+}
+
+.hoverline { 
+  stroke: #E6E7E8;
+  fill: none;
+  stroke-width: 2px;
+  left: 10px;
+  shape-rendering: crispEdges;
+  opacity: 1e-6;
+}
+
+.hovertext {
+  stroke: none;
+  font-size: 30px;
+  font-weight: bold;
+  fill: #000000;
+}
+
+.tooltip {
+  font-weight: normal;
 }
 
 .area {
@@ -32,125 +81,20 @@ body {
   shape-rendering: crispEdges;
 }
 
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
 .grid .tick {
     stroke: lightgrey;
     stroke-opacity: 0.7;
     shape-rendering: crispEdges;
 }
+
 .grid path {
   stroke-width: 0;
-}
-
-.x.axis path {
-  display: none;
-}
-
-y.axis text {
-    font-family: courier;
-    font-size: 14px;
-}
-
-.axis2 line {
-  stroke: #ddd;
-}
-
-.axis2 path {
-  display: none;
-}
-
-.axis2 text {
-              font-family: sans-serif;
-              font-size: 10px;
-        }
-
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
-
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-
-.circle {
-  fill-opacity: .75;
-}
-
-.legend rect {
-          fill:white;
-          stroke:black;
-          opacity:0.8;}
-        }
-
-.frame {
-  shape-rendering: crispEdges;
-}
-
-.frame {
-  fill: white;
-  stroke: #aaa;
-}
-
-.background path {
-  fill: none;
-  stroke: #ccc;
-  stroke-opacity: .4;
-  shape-rendering: crispEdges;
-}
-
-.foreground path {
-  fill: none;
-  stroke: brown;
-  stroke-opacity: .7;
-}
-
-.brush .extent {
-  fill-opacity: .3;
-  stroke: #fff;
-  shape-rendering: crispEdges;
-}
-
-.axis3 line,
-.axis3 path {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.axis3 text {
-  text-shadow: 0 1px 0 #fff;
-  cursor: move;
 }
 
 
 </style>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-<script src="d3.legend.js"></script>
 <script src="scripts.js"></script>
 
 </head>
