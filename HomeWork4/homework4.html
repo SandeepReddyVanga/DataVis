@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+
+<title>Home Work4 - Movies Dashboard</title>
+
+<style>
+
+body {
+  font: 14px sans-serif;
+}
+
+#lineChart {    
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:500px;
+  height:700px; 
+}
+
+#barChart {    
+  position:absolute;
+  top:10px;
+  left:510px;
+  height: 300px;
+}
+
+#scatterChart {
+  position:absolute;
+  top:310px;
+  left:510px;
+  height: 350px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="script_hw4.js"></script>
+
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h1>Home Work4 - Movies Dashboard</h1>
+    </div>
+
+    <div class="container" align="right">
+        <h2>Sandeep Vanga</h2>
+    </div>
+
+
+    <p>Code for this visualization can be found <a href="https://github.com/SandeepReddyVanga/DataVis/tree/gh-pages/HomeWork4">here</a>.</p>
+
+    
+</div>
+
+<div class="jumbotron">
+    <div class="container" align = "justify">
+
+        <h2>Data Preprocessing</h2>
+
+        <ul style="list-style-type:disc">
+              <li>Movies Data taken from ggplot2</li>
+              <li>Created a Genre variable which indicates the type of genre the movie belongs to</li>
+              <li>Subset operation to keep Date, Rating, Length of Movie and Genre</li>
+        </ul>
+
+
+        <h2>C-level Functionality</h2>
+
+          <ul style="list-style-type:disc">
+              <li>Tablaeu prototype can be found <a href="">here</a>.</li>
+          </ul>
+
+        <h2>B-level Functionality</h2>
+
+          <ul style="list-style-type:disc">
+            <li>A line plot indicating number of movies produced per year</li>
+            <li>A bar chart indicating the number movies by genre for given year</li>
+            <li>A scatter plot matrix of Rating Vs length of movie for given year</li>
+          </ul>
+
+          
+
+        <h2>A-level Functionality</h2>
+
+          <h3></h3>
+
+          <ul style="list-style-type:disc">
+            <li></li>
+
+          </ul>
+
+        <h2>Guidelines to use Interactivity</h2>
+
+        <h3></h3>
+
+          <ul style="list-style-type:disc">
+              <li></li>
+              <li></li>
+          </ul>
+
+          <h3></h3>
+
+          <ul style="list-style-type:disc">
+              <li></li>
+          </ul>
+
+        <h2> Functionality Discussion </h2>
+
+        <p> </p>
+        <p> </p>
+
+
+
+    </div>
+</div>
+
+<div class="container" id="lineChart">
+  <svg id="area1" width=500 height=700 ></svg>
+
+</div>
+<div class="container" id="barChart"></div>
+<div class="container" id="scatterChart"></div>
+
+<script>
+
+  var svg=document.getElementById('area1');
+  lineChart();
+
+</script>
+
+
+</body>
