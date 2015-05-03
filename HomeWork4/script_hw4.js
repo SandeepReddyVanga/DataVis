@@ -1,11 +1,11 @@
 
-function lineChart(){
+function lineChart(id,h,w){
 
 	var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 500,
-    height = 700;
+    width = w - margin.left - margin.right,
+    height = h - margin.top - margin.bottom;
 
-	var parseDate = d3.time.format("%Y").parse;
+	//var parseDate = d3.time.format("%Y").parse;
 
 	var x = d3.time.scale()
     		.range([0, width]);
@@ -25,7 +25,7 @@ function lineChart(){
 	    .x(function(d) { return x(d.date); })
 	    .y(function(d) { return y(d.count); });
 
-var svg = d3.select("#lineChart").append("svg")
+var svg = d3.selectAll("#"+id).append("svg")
     .attr("width", width )
     .attr("height", height)
   .append("g")
@@ -46,7 +46,7 @@ d3.csv("movies.csv", function(error, data) {
   var newdata = [];
 	Object.keys(counts).forEach(function(key) {
 	    newdata.push({
-	        date: parseDate(key),
+	        date: new Date(+key, 0, 1), // convert "Year" column to Date
 	        count: counts[key]
 	    });
 	});
@@ -54,7 +54,10 @@ d3.csv("movies.csv", function(error, data) {
 console.log(newdata);
 
   x.domain(d3.extent(newdata, function(d) { return d.date; }));
-  y.domain(d3.extent(newdata, function(d) { return d.count; }));
+  y.domain([0,d3.max(newdata, function(d) { return d.count; })]);
+
+  console.log(x);
+  console.log(y);
 
   svg.append("g")
       .attr("class", "x axis")
