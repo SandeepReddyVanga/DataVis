@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+
+<title>Project Prototype</title>
+
+<style>
+
+body {
+  font: 14px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+},
+.axis {
+  font: 10px sans-serif;
+},
+.axis1 path,
+.axis1 line {
+  fill: none;
+  stroke: #E6E7E8;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path, .x.axis1 path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+y.axis text {
+    font-family: courier;
+    font-size: 14px;
+}
+
+.legend-box {
+  cursor: pointer;  
+}
+
+#mouse-tracker {
+  stroke: #E6E7E8;
+  stroke-width: 1px;
+}
+
+.hoverline { 
+  stroke: #E6E7E8;
+  fill: none;
+  stroke-width: 2px;
+  left: 10px;
+  shape-rendering: crispEdges;
+  opacity: 1e-6;
+}
+
+.hovertext {
+  stroke: none;
+  font-size: 30px;
+  font-weight: bold;
+  fill: #000000;
+}
+
+.tooltip {
+  font-weight: normal;
+}
+
+.area {
+  fill: orange;
+  clip-path: url(#clip);
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+
+</style>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="script_project.js"></script>
+
+</head>
+
+<body>
+
+  <div class="row offset">
+        <div class="col-lg-11 col-sm-offset-1" id="svg1" align="center">
+          <svg id="area1" width=1400 height=500 ></svg>
+        </div>
+  </div>
+
+  <!-- <div class="row offset">
+       
+      <div class="col-lg-11  col-sm-offset-1" id="svg2" align="center">
+        <svg id="area2" width=1400 height=500 ></svg>
+      </div>
+  </div> -->
+
+  <script>
+
+  var svg=document.getElementById('area1');
+  multiseries_line_imports("svg1",svg.height.baseVal.value,svg.width.baseVal.value);
+
+  // var svg=document.getElementById('area2');
+  // multiseries_line_exports("svg2",svg.height.baseVal.value,svg.width.baseVal.value);
+
+
+  </script>
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h1>Project Prototype</h1>
+    </div>
+
+    <div class="container" align="right">
+        <h2>Sandeep Vanga</h2>
+    </div>
+    
+</div>
+
+<div class="jumbotron">
+    <div class="container" align = "justify">
+
+        <h2>Dataset Summary</h2>
+
+        <ul style="list-style-type:disc">
+              <li>Fertilizer imports/exports data - USA</li>
+              <li>Data is available for 26 major fertilizers and 82 trading countries</li>
+              <li>Data is available in both volume(tons) as well as dollar ammount</li>
+              <li>Imports data is available from 1995 to 2012</li>
+              <li>Exports data is available from 1990 to 2012</li>
+        </ul>
+
+        More details about the dataset can be found <a href="http://sandeepreddyvanga.github.io/DataVis/project_dataset.html">here</a>.
+
+
+        <h2>Sketch Summary</h2>
+
+        I plan to visualize different aspects of data set using
+
+          <ul style="list-style-type:disc">
+              <li>Multi series line chart: Time series of US imports/exports total volume/dollar ammount for each fertilizer</li>
+              <li>Choropleth & Circle packing: Country wise annual US imports/exports</li>
+              <li>Scatter-Plot Matrix & Heat Map: Co-occurences of fertilizer imports/exports over time</li>
+          </ul>
+
+         I prototyped Multi series line chart of US imports (total volume). More details about the sketch can be found <a href="http://sandeepreddyvanga.github.io/DataVis/projectsketch.html">here</a>.
+
+    </div>
+</div>
+
+
+</body>
