@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Symbol Map Demo</title>
+
+    <style>
+
+
+        body {
+        background-color: whitesmoke;
+        margin: 20px 10px;
+        /*padding: 0px;*/
+        }
+
+        svg {
+            background-color: white;
+            margin: 0 auto;
+            /*float: center;*/
+        }
+
+        #block {
+            max-width: 950px;
+            text-align: center;
+        }
+
+        #log {
+            color: dimgray;
+
+            font-size: 10px;
+            font-style: italic;
+            text-align: center;
+
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .country {
+            fill: gainsboro;
+        }
+
+        /*
+         * Setting "opacity" can affect both
+         * fill and stroke. We want to set
+         * both of those separately.
+         */
+
+        .symbol {
+            fill: royalblue;
+            fill-opacity: 0.75;
+
+            stroke: gray;
+            stroke-width: 1px;
+            stroke-opacity: 1.0;
+        }
+
+        .caption {
+          font-weight: bold;
+        }
+
+        .key path {
+          display: none;
+        }
+
+        .key line {
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+
+        /*
+         * We can specify how to highlight based
+         * on the type of underlying object.
+         */
+
+        circle.highlight {
+            stroke: black;
+            stroke-width: 2px;
+        }
+
+        path.highlight {
+            fill: whitesmoke;
+
+            stroke: tomato;
+            stroke-width: 1px;
+        }
+
+    </style>
+
+
+
+    <!-- load D3 and TopoJSON //-->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+
+    <!-- load custom CSS and JavaScript //-->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="hw5_script.js"></script>
+
+ </head>
+
+<body>
+
+<div id="block" text-align="center">
+<svg id="map" width="940" height="640" align="center"></svg>
+<p id="log">Loading map... please wait.</p>
+
+<script>
+/*
+ * For sample TopoJSON files, go to:
+ * https://gist.github.com/mbostock/4090846
+ */
+var base = "https://gist.githubusercontent.com/mbostock/4090846/raw/";
+var url = {
+    world: base + "world-110m.json",
+    //states:  base + "us-state-names.tsv",
+    eq:  "4.5_month.csv" // relative URL
+};
+
+// Uses reusable chart model
+// See http://bost.ocks.org/mike/chart/
+var chart = symbolMap();
+
+// Update how we access data (need the precip property)
+chart = chart.value(function(d) { return d.mag; });
+
+// Nested calls to trigger drawing in proper order
+d3.json(url.world, function(mapError, mapJSON) {
+    if (processError(mapError)) return;
+
+    // update map data
+    chart = chart.map(mapJSON);
+
+    // Wait until the map is drawn before loading
+    // and drawing the data values
+    d3.csv(url.eq, function(dataError, dataJSON) {
+        if (processError(dataError)) return;
+
+        chart = chart.values(dataJSON);
+        chart("map");
+    });
+});
+
+// Load state lookup information
+// Possible some lookups will fail until this loads
+//d3.tsv(url.states, parseStateName, function(error, data) {
+        //if (processError(error)) return;
+        //chart = chart.lookup(data);
+    //}
+//);
+
+</script>
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h1>Home Work5 - Earthquakes Visualization</h1>
+    </div>
+
+    <div class="container" align="right">
+        <h2>Sandeep Vanga</h2>
+    </div>
+
+
+    <p>Code for this visualization can be found <a href="https://github.com/SandeepReddyVanga/DataVis/tree/gh-pages/HomeWork5">here</a>.</p>
+
+    
+</div>
+
+<div class="jumbotron">
+    <div class="container" align = "justify">
+
+
+        <h2>Basic Functionality</h2>
+
+          <ul style="list-style-type:disc">
+              <li>World projection is used with appropriate scale</li>
+              <li>Earthquakes data is displayed as circles</li>
+              <li>Magnitude of earthquake is coded as radius of circle</li>
+          </ul>
+
+        <h2>Moderate Functionality</h2>
+
+          <ul style="list-style-type:disc">
+            <li>Depth information is color coded</li>
+            <li>Depth is divided in to three ranges a) less than 70km b)  70-300 km and c) greater than 300 km</li>
+          </ul>
+
+        <h2>Advanced Functionality</h2>
+
+          <ul style="list-style-type:disc">
+            <li></li>
+          </ul>
+
+        <h2> Guidelines to use Interactivity</h2>
+
+          <ul style="list-style-type:disc">
+              <li>On Mouse hover, Circle is highlighted & Magnitude, Place, Depth and Time of earthquake is displayed</li>
+              <li></li>
+          </ul>
+
+    </div>
+</div>
+
+</body>
+</html>
