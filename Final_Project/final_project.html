@@ -177,7 +177,7 @@ y.axis text {
                 <li>Geo-spatial visualization of Ferilizer Exports (USA) using "Chorpleth" can be found <a href="./choropleth_exports.html">here</a></li>
           </ul>
 
-          Code for the final project can be found  <a href="http://sandeepreddyvanga.github.io/DataVis/Final_Project/">here.</a>
+          Code for the final project can be found  <a href="https://github.com/SandeepReddyVanga/DataVis/tree/gh-pages/Final_Project/">here.</a>
           More details about the dataset can be found <a href="http://sandeepreddyvanga.github.io/DataVis/Final_Project/project_dataset.html">here.</a>
 
         </div>
@@ -189,7 +189,7 @@ y.axis text {
 
             <h3>Techniques</h3>
 
-            I used three different techniques to visualize different aspects of the data set.
+             I used three different techniques to visualize different aspects of the data set.
 
               <ul style="list-style-type:disc">
                   <li>Circle Packing: Hierarchical representation of Ferilizer Imports/Exports (USA) </li>
@@ -205,16 +205,26 @@ y.axis text {
                     <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click. </li>
                     <li> Zooming functionality to inspect data of particular country. Circle corresponding to a country is highilighted on hover. By clicking on a particular circle, zooming functionality is triggered. Clicking on the same circle again will trigger zoom-out. </li>
                   <h4>Multi series line chart</h4>
-                    <li> Time slider to change the year. Visualization gets updated on mouse release.</li>
-                    <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click. </li>
-                    <li> Zooming functionality to inspect data of particular country. Circle corresponding to a country is highilighted on hover. By clicking on a particular circle, zooming functionality is triggered. Clicking on the same circle again will trigger zoom-out. </li>
+                    <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click.</li>
+                    <li> Details on demand using mouse hover. A gray line appears on hover to compare between different time-series (ferilizers). Also the exact values are displayed to the right of legend.</li>
+                    <li> Filtering functionality to select different fertilizers. The Y axis (volume) is automatically adjusted based on the selections.</li>
                   <h4>Choropleth</h4>
-                    <li> Time slider to change the year. Visualization gets updated on mouse release.</li>
-                    <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click. </li>
-                    <li> Zooming functionality to inspect data of particular country. Circle corresponding to a country is highilighted on hover. By clicking on a particular circle, zooming functionality is triggered. Clicking on the same circle again will trigger zoom-out. </li>
+                    <li> This choropleth represents the data from year 2010.</li>
+                    <li> By keeping muse pointer on particular country for a while, the exact volume of exports is displayed over the years to compare with the export volume of the year 2010.</li>
+                    <li> Zoom-in is implemented on mouse click.</li>
               </ul>
 
              <h3>Feedback</h3>
+
+             As I implemented only multi-series line as part of prototype, I recieved feedback on only multi-series plot.
+
+             <ul style="list-style-type:disc">
+                  <li> As suggested, I moved the text (exact volume on hover) to right of legend and adjusted the legend position accordingly. </li>
+                  <li> Also, instead of using two different plots for imports and exports (as planned originally), I implemented buttons to switch between imports and exports. </li>
+                  <li> As suggested, I'm displaying "NA" instead of empty text whenever it's applicable. </li>
+                  <li> As suggested, I updated the title (included volume in million of Tons) . </li>
+              </ul>
+
 
              <h3>Challenges</h3>
 
