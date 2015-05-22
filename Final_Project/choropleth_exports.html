@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<!-- Thttp://d3-geomap.github.io/map/choropleth/world/
+I'm using an external custom library, d3.geomap here -->
+
+<head>
+<meta charset="utf-8">
+
+<title>Final Project</title>
+
+<style>
+
+body {
+  font: 14px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+},
+.axis {
+  font: 10px sans-serif;
+},
+.axis1 path,
+.axis1 line {
+  fill: none;
+  stroke: #E6E7E8;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path, .x.axis1 path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+y.axis text {
+    font-family: courier;
+    font-size: 14px;
+}
+
+.legend-box {
+  cursor: pointer;  
+}
+
+#mouse-tracker {
+  stroke: #E6E7E8;
+  stroke-width: 1px;
+}
+
+.btn-group {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *margin-left: .3em;
+  font-size: 12px;
+  white-space: nowrap;
+  vertical-align: middle;
+  *zoom: 1;
+  background:gray;
+  color:#fff;
+}
+
+.btn-active-switch{
+  background:#CCCCFF;
+  width: 6em;  
+  height: 3em;
+  font-size: 14px;
+}
+
+.btn-switch{
+  background:#CCFFCC;
+  width: 6em;  
+  height: 3em;
+  font-size: 14px;
+}
+
+.hoverline { 
+  stroke: #E6E7E8;
+  fill: none;
+  stroke-width: 2px;
+  left: 10px;
+  shape-rendering: crispEdges;
+  opacity: 1e-6;
+}
+
+.hovertext {
+  stroke: none;
+  font-size: 30px;
+  font-weight: bold;
+  fill: #000000;
+}
+
+.tooltip {
+  font-weight: normal;
+  text-align: left;
+}
+
+.area {
+  fill: orange;
+  clip-path: url(#clip);
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.container1 {
+  float: left;
+}
+
+.container2 {
+  float: right;
+}
+
+.jumbotron{
+  background-color: lightgray;
+}
+
+/*#slider {
+  position: absolute;
+  left: 50%;
+  margin-left: -300px;
+  bottom: 20px;
+  width: 600px;
+  height: 50px;
+}*/
+
+</style>
+
+<link href="./d3-geomap/css/d3.geomap.css" rel="stylesheet">
+<script src="./d3-geomap/vendor/d3.geomap.dependencies.min.js"></script>
+<script src="./d3-geomap/js/d3.geomap.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script>
+<!-- <script src="./chroniton_only.js"></script>
+<link href="./chroniton_only.css" rel="stylesheet"> -->
+<script src="./html5slider.js"></script>
+
+
+<body>
+
+  <div class="row offset">
+
+  <div class="jumbotron" align = "center" >
+
+    <p> Choropleth of fertilizer Exports (USA) </p>
+  </div>
+
+  </div>
+
+  <div class="container2">
+    <!-- <input id="slider" type="range" min="2000" max="2010" value="2000" step="1" onchange="updateSlider(this.value)"/> -->
+    <!-- <span id="range">2000</span> -->
+
+    <!-- <div class="btn-group" data-toggle="buttons-radio" align = "center">
+      <button type="button" id="imports_map" class="btn-active-switch">Imports</button>
+      <button type="button" id="exports_map" class="btn-switch">Exports</button>
+    </div> -->
+
+    <div id="map1"></div><div id="map2"></div>
+    <!-- <svg id="area2" width=1000 height=700 ></svg> -->
+  </div>
+  <script>
+
+  function draw_map_imports(){
+
+  // var format = function(d) {
+  //   d = d / 1000000;
+  //   return d3.format(',.01f')(d) + 'M';
+  //     }
+
+  var format = function(d) {
+    return d3.round(d);
+      }
+
+  // var width = 1000,
+  //   height = 600;
+
+  // var proj = d3.geo.equirectangular()
+  //   .scale(153)
+  //   .translate([width / 2, height / 2])
+  //   .precision(.1);
+
+  // d3.select("#slider") // (1)
+  //   .call(
+  //     chroniton()  // (2)
+  //       .domain([2000, 2012])  // (3)
+  //       .labelFormat(d3.time.format("%Y"))
+  //       .width(600)
+  //       ); // (5)
+  
+  var map1 = d3.geomap.choropleth()
+    .geofile('./d3-geomap/topojson/world/countries.json')
+    //.width(width)
+    //.height(height)
+    //.projection(proj)
+    .title("country")
+    .colors(colorbrewer.Purples[3])
+    //.column('2010')
+    .column('2010')
+    .format(format)
+    .legend(true)
+    .unitId('id');
+
+    d3.csv("./ProjectDataSet/fertilizer_imports_timeseries_volume_byCountry.csv", function(error, data) {
+      d3.select('#map1')
+          .datum(data)
+          .call(map1.draw, map1);
+      });
+  
+}
+
+function draw_map_exports(){
+
+  // var format = function(d) {
+  //   return d3.round(d);
+  //     }
+
+  var format = function(d) {
+    d = d / 1000000;
+    return d3.format(',.01f')(d) + ' Million Tons';
+      }
+
+  // var width = 1000,
+  //   height = 600;
+
+  // var proj = d3.geo.equirectangular()
+  //   .scale(153)
+  //   .translate([width / 2, height / 2])
+  //   .precision(.1);
+
+  // d3.select("#slider") // (1)
+  //   .call(
+  //     chroniton()  // (2)
+  //       .domain([2000, 2012])  // (3)
+  //       .labelFormat(d3.time.format("%Y"))
+  //       .width(600)
+  //       ); // (5)
+  
+  var map2 = d3.geomap.choropleth()
+    .geofile('./d3-geomap/topojson/world/countries.json')
+    //.width(width)
+    //.height(height)
+    //.projection(proj)
+    .title("country")
+    .colors(colorbrewer.Purples[3])
+    //.column('2010')
+    .column('2010')
+    .format(format)
+    .legend(true)
+    .unitId('id');
+
+    d3.csv("./ProjectDataSet/fertilizer_exports_timeseries_volume_byCountry.csv", function(error, data) {
+      d3.select('#map2')
+          .datum(data)
+          .call(map2.draw, map2);
+      });
+  
+}
+
+
+
+
+  </script>
+
+  <script> draw_map_exports(); </script>
+
+  <div class="row offset">
+
+  <div class="jumbotron" align = "center" >
+
+    <p> This visualization is inspired from <a href="http://d3-geomap.github.io/map/choropleth/world/">here.</a></p>
+  </div>
+
+  </div>
+
+
+
+</body>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<!-- This Code is adapted from http://bl.ocks.org/chule/74e95deeadd353e42034 -->
+
+
+<head>
+<meta charset="utf-8">
+
+<title>Circle Packing</title>
+
+
+<style>
+
+body {
+  font: 26px sans-serif;
+}
+
+
+.node {
+  cursor: pointer;
+}
+
+.node:hover {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node--leaf {
+  fill: orange;
+}
+
+.label {
+  font: 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-anchor: middle;
+  text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
+  text-color: red;
+}
+
+.label,
+.node--root,
+.node--leaf {
+  pointer-events: none;
+}
+
+#slider {
+  position: absolute;
+  left: 25%;
+  top: 100px;
+  margin-left: -300px;
+  /*bottom: 20px;*/
+  width: 600px;
+  height: 20px;
+  color: red;
+}
+
+#range {
+  position: absolute;
+  left: 47%;
+  top: 90px;
+  margin-left: -300px;
+  /*bottom: 20px;*/
+  color: brown;
+  font-size: 20px;
+}
+
+</style>
+
+<body>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<div class="row offset">
+
+<div class="jumbotron" align = "center" >
+
+  <p> Hierarchical representation of fertilizer Imports/Exports (USA) </p>
+</div>
+
+</div>
+
+<div>
+  <input id="slider" type="range" min="1990" max="2012" value="1990" step="1"/>
+  <span id="range">1990</span>
+</div>
+
+<script>
+var margin = 100,
+    diameter = 1000;
+
+
+
+var color = d3.scale.linear()
+    .domain([-1, 2])
+    .range(["hsl(80,90%,90%)", "hsl(250,10%,10%)"])
+    .interpolate(d3.interpolateHcl);
+
+var pack = d3.layout.pack()
+    .padding(2)
+    .size([diameter - margin, diameter -margin])
+    .value(function(d) { return d.size; })
+
+///////////////////////
+
+onload = function() {
+  var $ = function(id) { return document.getElementById(id); };
+  $('slider').oninput = function() { $('range').innerHTML = this.value; };
+  $('slider').oninput();
+  };
+
+// d3.select("#slider") // (1)
+  //   .call(
+  //     chroniton()  // (2)
+  //       .domain([2000, 2012])  // (3)
+  //       .labelFormat(d3.time.format("%Y"))
+  //       .width(600)
+  //       ); // (5)
+var typeOfData="exports";
+var year = "1990";
+
+  d3.selectAll("input").on("change", function change() {
+
+    year = this.value;
+    console.log(year);
+    //d3.select('.map').remove();
+    var file_name = "./ProjectDataSet/"+typeOfData+"_"+year+".json";
+    console.log(file_name);
+    //callJson("./ProjectDataSet/test.json");
+    callJson(file_name);
+  });
+
+/* buttons */
+var buttonData = [["Exports",1], ["Imports",0]];
+console.log(buttonData[0][1]);
+var buttonDiv = d3.select("body").append("svg")
+    .attr("width", diameter)
+    .attr("height", 50);
+var buttons = buttonDiv.selectAll(".updateButton")
+  .data(buttonData)
+   .enter()
+  .append('g')
+  .attr("class", "updateButton")
+  .on("click", function(d, i) {
+    //buttons.style("fill", "darkgreen");
+    typeOfData = d[0].toLowerCase();
+    if( i == 1){
+      d[1][1] = 1;
+      d[0][1] = 0;
+    } else {
+      d[0][1] = 1;
+      d[1][1] = 0;
+    }
+    var file_name = "./ProjectDataSet/"+typeOfData+"_"+year+".json";
+    callJson(file_name);
+  });
+
+buttons.append("rect")
+  .attr("x", function(d, i) { return (i * 100) + 700; })
+  .attr("y", 13)
+    .attr("width", 70)
+    .attr("height", 30)
+    .attr("ry", 5)
+    .attr("rx", 40)
+    .style("stroke", "#787878")
+    .style("fill", function(d, i) { return d[i][1]==1 ? "darkgreen":"lightgreen" ; });
+
+buttons.append("text")
+    .attr("x", function(d, i) { return (i * 100) + (100 / 2) + 687; }) 
+    .attr("y", 26)
+    .attr("dy", "0.35em")
+    .style("text-anchor", "middle")
+    .style("font-size", "14px")
+    .text(function(d) { return d[0]; });
+
+
+
+ ///////////////////////   
+
+
+var svg = d3.select("body").append("svg")
+    .attr("width", diameter)
+    .attr("height", diameter)
+    .attr("x", 100)
+    .attr("y", 50)
+  .append("g")
+    .attr("transform", "translate(" + (diameter / 2 + 40) + "," + diameter / 2 + ")");
+
+
+var callJson = function (json) {
+  d3.json(json, function(error, root) {
+    if (error) return console.error(error);
+
+    svg.selectAll("circle").remove();
+    svg.selectAll("text").remove();
+
+    var focus = root,
+        nodes = pack.nodes(root),
+        view;
+
+    var circle = svg.selectAll("circle")
+        .data(nodes)
+      .enter().append("circle")
+        .attr("class", function(d) { return d.parent ? d.children ? "node" : "node node--leaf" : "node node--root"; })
+        .style("fill", function(d) { return d.children ? color(d.depth) : null; })
+        .on("click", function(d) { if (focus !== d) zoom(d), d3.event.stopPropagation(); });
+
+    var text = svg.selectAll("text")
+        .data(nodes)
+      .enter().append("text")
+        .attr("class", "label")
+        .style("text-color", "orange")
+        //.style("fill-opacity", function(d) { return d.parent === root ? 1 : 0; })
+        .style("display", function(d) { return d.parent === root ? null : "none"; })
+        .text(function(d) { return d.name; });
+
+    var node = svg.selectAll("circle,text");
+
+    d3.select("body")
+        .style("background", "grey")
+        .on("click", function() { zoom(root); });
+
+    zoomTo([root.x, root.y, (root.r * 2) + margin]);
+
+    function zoom(d) {
+      var focus0 = focus; focus = d;
+
+      var transition = d3.transition()
+          .duration(d3.event.altKey ? 7500 : 1000)
+          .tween("zoom", function(d) {
+            var i = d3.interpolateZoom(view, [focus.x, focus.y, (focus.r * 2.5) + margin]);
+            return function(t) { zoomTo(i(t)); };
+          });
+
+      transition.selectAll("text")
+        .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
+          .style("fill-opacity", function(d) { return d.parent === focus ? 1 : 0; })
+          .each("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
+          .each("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
+    }
+
+    function zoomTo(v) {
+      var k = diameter / v[2]; view = v;
+      node.attr("transform", function(d) { return "translate(" + (d.x - v[0]) * k + "," + (d.y - v[1]) * k + ")"; });
+      circle.attr("r", function(d) { return d.r * k; });
+    }
+  });
+};
+
+
+//callJson("./ProjectDataSet/test.json");
+var file_name = "./ProjectDataSet/"+typeOfData+"_"+year+".json";
+callJson(file_name);
+
+d3.select(self.frameElement).style("height", (diameter-margin) + "px");
+
+</script>
+
+<div class="row offset">
+
+<div class="jumbotron" align = "center" >
+
+  <p> This visualization is inspired from <a href="http://bl.ocks.org/chule/74e95deeadd353e42034">here.</a></p>
+</div>
+
+</div>
+
+
+
+</body>

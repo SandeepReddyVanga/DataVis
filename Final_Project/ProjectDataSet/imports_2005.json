@@ -1,0 +1,1008 @@
+{
+ "name": "Imports",
+"children": [
+ {
+ "name": "Algeria",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":  10527 
+},
+{
+ "name": "Nitrogen Solutions",
+"size":  38891 
+} 
+] 
+},
+{
+ "name": "Argentina",
+"children": [
+ {
+ "name": "Urea (Solid)",
+"size":  29911 
+} 
+] 
+},
+{
+ "name": "Australia (No Islands)",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":    802 
+},
+{
+ "name": "Other Phosphate Fertilizers",
+"size":    367 
+},
+{
+ "name": "Other Potassium Fertilizers",
+"size":   2362 
+},
+{
+ "name": "Urea (Solid)",
+"size":    851 
+} 
+] 
+},
+{
+ "name": "Bahrain",
+"children": [
+ {
+ "name": "Urea (Solid)",
+"size": 2.4741e+05 
+} 
+] 
+},
+{
+ "name": "Bangladesh",
+"children": [
+ {
+ "name": "Urea (Solid)",
+"size": 1.5126e+05 
+} 
+] 
+},
+{
+ "name": "Belarus",
+"children": [
+ {
+ "name": "Nitrogen Solutions",
+"size": 1.8441e+05 
+},
+{
+ "name": "Potassium Muriate",
+"size": 4.811e+05 
+},
+{
+ "name": "Urea (Solid)",
+"size": 1.3168e+05 
+} 
+] 
+},
+{
+ "name": "Belgium",
+"children": [
+ {
+ "name": "Ammonium Sulfate",
+"size":    265 
+},
+{
+ "name": "Calcium Nitrate",
+"size":    159 
+},
+{
+ "name": "Diammonium Phosphate (DAP)",
+"size":   1567 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":   8764 
+},
+{
+ "name": "Other Nitrogen Fertilizers",
+"size":  13131 
+},
+{
+ "name": "Phosphoric Acid, Superphosphoric",
+"size":    292 
+},
+{
+ "name": "Phosphoric Acid, Wet Process",
+"size":  63720 
+},
+{
+ "name": "Potassium Sulfate",
+"size":   6081 
+},
+{
+ "name": "Urea (Solid)",
+"size":  11962 
+} 
+] 
+},
+{
+ "name": "Brazil",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size":   1556 
+},
+{
+ "name": "Anhydrous Ammonia",
+"size":  20314 
+},
+{
+ "name": "Other Potassium Fertilizers",
+"size":   1141 
+},
+{
+ "name": "Urea (Solid)",
+"size":  25970 
+} 
+] 
+},
+{
+ "name": "Bulgaria",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size":  71188 
+},
+{
+ "name": "Nitrogen Solutions",
+"size": 1.3673e+05 
+} 
+] 
+},
+{
+ "name": "Canada",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size": 5.9375e+05 
+},
+{
+ "name": "Ammonium Sulfate",
+"size": 3.0399e+05 
+},
+{
+ "name": "Anhydrous Ammonia",
+"size": 1.4745e+06 
+},
+{
+ "name": "Aqua Ammonia",
+"size":  23712 
+},
+{
+ "name": "Chemical Mixtures",
+"size":  50310 
+},
+{
+ "name": "Diammonium Phosphate (DAP)",
+"size":    200 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size": 1.1619e+05 
+},
+{
+ "name": "Nitrogen Solutions",
+"size": 4.7435e+05 
+},
+{
+ "name": "Normal Super",
+"size":    193 
+},
+{
+ "name": "Other Nitrogen Fertilizers",
+"size":   9448 
+},
+{
+ "name": "Other Phosphate Fertilizers",
+"size":  23203 
+},
+{
+ "name": "Other Potassium Fertilizers",
+"size":   2243 
+},
+{
+ "name": "Phosphoric Acid, Superphosphoric",
+"size":    879 
+},
+{
+ "name": "Potassium Muriate",
+"size": 1.011e+07 
+},
+{
+ "name": "Potassium Sulfate",
+"size":  14339 
+},
+{
+ "name": "Potassium-Sodium Nitrate",
+"size":   1942 
+},
+{
+ "name": "Sulfur",
+"size": 1.2053e+06 
+},
+{
+ "name": "Urea (Solid)",
+"size": 1.9183e+06 
+} 
+] 
+},
+{
+ "name": "Chile",
+"children": [
+ {
+ "name": "Other Potassium Fertilizers",
+"size":  36424 
+},
+{
+ "name": "Phosphate Rock",
+"size":    209 
+},
+{
+ "name": "Potassium Nitrate",
+"size":  53399 
+},
+{
+ "name": "Potassium Sulfate",
+"size":  14661 
+},
+{
+ "name": "Sodium Nitrate",
+"size":  71999 
+} 
+] 
+},
+{
+ "name": "China (Mainland)",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size":   1392 
+},
+{
+ "name": "Chemical Mixtures",
+"size":    489 
+},
+{
+ "name": "Concentrated Super",
+"size":    341 
+},
+{
+ "name": "Diammonium Phosphate (DAP)",
+"size":   2410 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":   7845 
+},
+{
+ "name": "Other Potassium Fertilizers",
+"size":    475 
+},
+{
+ "name": "Phosphoric Acid, Superphosphoric",
+"size":   3703 
+},
+{
+ "name": "Urea (Solid)",
+"size":  52115 
+} 
+] 
+},
+{
+ "name": "Colombia",
+"children": [
+ {
+ "name": "Ammonium Sulfate",
+"size":    920 
+},
+{
+ "name": "Anhydrous Ammonia",
+"size":  39666 
+} 
+] 
+},
+{
+ "name": "Croatia",
+"children": [
+ {
+ "name": "Urea (Solid)",
+"size":  37893 
+} 
+] 
+},
+{
+ "name": "Czech Republic",
+"children": [
+ {
+ "name": "Other Potassium Fertilizers",
+"size":    382 
+} 
+] 
+},
+{
+ "name": "Denmark",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":    933 
+} 
+] 
+},
+{
+ "name": "Ecuador",
+"children": [
+ {
+ "name": "Other Nitrogen Fertilizers",
+"size":    694 
+} 
+] 
+},
+{
+ "name": "Egypt",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":  10907 
+},
+{
+ "name": "Urea (Solid)",
+"size":  83904 
+} 
+] 
+},
+{
+ "name": "Estonia",
+"children": [
+ {
+ "name": "Urea (Solid)",
+"size":  81671 
+} 
+] 
+},
+{
+ "name": "Finland",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":   8847 
+} 
+] 
+},
+{
+ "name": "France",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":    783 
+},
+{
+ "name": "Nitrogen Solutions",
+"size":   1192 
+},
+{
+ "name": "Normal Super",
+"size":    216 
+},
+{
+ "name": "Other Nitrogen Fertilizers",
+"size":   2756 
+},
+{
+ "name": "Other Phosphate Fertilizers",
+"size":    225 
+},
+{
+ "name": "Potassium Sulfate",
+"size":    180 
+} 
+] 
+},
+{
+ "name": "Georgia",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size":  33488 
+} 
+] 
+},
+{
+ "name": "Germany, Fed. Republic; United",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size":    499 
+},
+{
+ "name": "Ammonium Sulfate",
+"size":    100 
+},
+{
+ "name": "Chemical Mixtures",
+"size":   1188 
+},
+{
+ "name": "Diammonium Phosphate (DAP)",
+"size":    384 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":    834 
+},
+{
+ "name": "Nitrogen Solutions",
+"size":  73358 
+},
+{
+ "name": "Potassium Muriate",
+"size":  32865 
+},
+{
+ "name": "Potassium Nitrate",
+"size":   2759 
+},
+{
+ "name": "Potassium Sulfate",
+"size":  79767 
+},
+{
+ "name": "Sodium Nitrate",
+"size":   1173 
+},
+{
+ "name": "Sulfur",
+"size":  14345 
+},
+{
+ "name": "Urea (Solid)",
+"size":  32201 
+} 
+] 
+},
+{
+ "name": "Hong Kong",
+"children": [
+ {
+ "name": "Monammonium Phosphate (MAP)",
+"size":    122 
+} 
+] 
+},
+{
+ "name": "Hungary",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":   6289 
+} 
+] 
+},
+{
+ "name": "India",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":    451 
+},
+{
+ "name": "Potassium Nitrate",
+"size":    433 
+} 
+] 
+},
+{
+ "name": "Indonesia",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":  24255 
+},
+{
+ "name": "Nitrogen Solutions",
+"size":   6063 
+},
+{
+ "name": "Urea (Solid)",
+"size": 1.2709e+05 
+} 
+] 
+},
+{
+ "name": "Israel",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":   3745 
+},
+{
+ "name": "Concentrated Super",
+"size":   7987 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":   5413 
+},
+{
+ "name": "Potassium Muriate",
+"size":   6301 
+},
+{
+ "name": "Potassium Nitrate",
+"size":  37852 
+},
+{
+ "name": "Potassium-Sodium Nitrate",
+"size":   4254 
+} 
+] 
+},
+{
+ "name": "Italy",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":   3560 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":   1473 
+},
+{
+ "name": "Other Nitrogen Fertilizers",
+"size":    215 
+},
+{
+ "name": "Urea (Solid)",
+"size":   2186 
+} 
+] 
+},
+{
+ "name": "Japan",
+"children": [
+ {
+ "name": "Ammonium Sulfate",
+"size":   1725 
+},
+{
+ "name": "Aqua Ammonia",
+"size":   2335 
+},
+{
+ "name": "Calcium Nitrate",
+"size":    247 
+},
+{
+ "name": "Chemical Mixtures",
+"size":  13459 
+},
+{
+ "name": "Concentrated Super",
+"size":    850 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":    409 
+},
+{
+ "name": "Other Phosphate Fertilizers",
+"size":    516 
+},
+{
+ "name": "Phosphate Rock",
+"size":   1376 
+},
+{
+ "name": "Phosphoric Acid, Superphosphoric",
+"size":    637 
+},
+{
+ "name": "Potassium Nitrate",
+"size":   1202 
+},
+{
+ "name": "Potassium Sulfate",
+"size":    258 
+},
+{
+ "name": "Urea (Solid)",
+"size":    236 
+} 
+] 
+},
+{
+ "name": "Kuwait",
+"children": [
+ {
+ "name": "Urea (Solid)",
+"size": 4.9953e+05 
+} 
+] 
+},
+{
+ "name": "Latvia",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size": 1.2978e+05 
+} 
+] 
+},
+{
+ "name": "Libya",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size":    265 
+},
+{
+ "name": "Anhydrous Ammonia",
+"size":  22319 
+},
+{
+ "name": "Urea (Solid)",
+"size": 1.0627e+05 
+} 
+] 
+},
+{
+ "name": "Lithuania",
+"children": [
+ {
+ "name": "Nitrogen Solutions",
+"size": 2.9586e+05 
+},
+{
+ "name": "Urea (Solid)",
+"size":   3772 
+} 
+] 
+},
+{
+ "name": "Malaysia",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":  25032 
+},
+{
+ "name": "Urea (Solid)",
+"size":  54274 
+} 
+] 
+},
+{
+ "name": "Martinique",
+"children": [
+ {
+ "name": "Sulfur",
+"size":    324 
+} 
+] 
+},
+{
+ "name": "Mexico",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":   1742 
+},
+{
+ "name": "Diammonium Phosphate (DAP)",
+"size":   6694 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":  13804 
+},
+{
+ "name": "Sodium Nitrate",
+"size":    274 
+},
+{
+ "name": "Sulfur",
+"size": 4.6908e+05 
+},
+{
+ "name": "Urea (Solid)",
+"size":   2049 
+} 
+] 
+},
+{
+ "name": "Morocco",
+"children": [
+ {
+ "name": "Monammonium Phosphate (MAP)",
+"size":    139 
+},
+{
+ "name": "Phosphate Rock",
+"size": 1.8893e+06 
+} 
+] 
+},
+{
+ "name": "Netherlands",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size":  29209 
+},
+{
+ "name": "Ammonium Sulfate",
+"size":   1851 
+},
+{
+ "name": "Chemical Mixtures",
+"size":   4636 
+},
+{
+ "name": "Nitrogen Solutions",
+"size":    146 
+},
+{
+ "name": "Other Nitrogen Fertilizers",
+"size":  19245 
+},
+{
+ "name": "Other Potassium Fertilizers",
+"size":    904 
+},
+{
+ "name": "Potassium Muriate",
+"size":    182 
+},
+{
+ "name": "Urea (Solid)",
+"size":  20480 
+} 
+] 
+},
+{
+ "name": "Norway",
+"children": [
+ {
+ "name": "Calcium Nitrate",
+"size": 1.1594e+05 
+},
+{
+ "name": "Chemical Mixtures",
+"size":  83127 
+},
+{
+ "name": "Nitrogen Solutions",
+"size":   8660 
+},
+{
+ "name": "Other Nitrogen Fertilizers",
+"size": 2.3294e+05 
+} 
+] 
+},
+{
+ "name": "Oman",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":  25859 
+} 
+] 
+},
+{
+ "name": "Poland",
+"children": [
+ {
+ "name": "Nitrogen Solutions",
+"size": 1.6794e+05 
+},
+{
+ "name": "Potassium Nitrate",
+"size":    176 
+},
+{
+ "name": "Urea (Solid)",
+"size":    299 
+} 
+] 
+},
+{
+ "name": "Portugal",
+"children": [
+ {
+ "name": "Other Nitrogen Fertilizers",
+"size":    230 
+} 
+] 
+},
+{
+ "name": "Qatar",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":  56225 
+},
+{
+ "name": "Urea (Solid)",
+"size": 8.0523e+05 
+} 
+] 
+},
+{
+ "name": "Republic Of South Africa",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":  17856 
+} 
+] 
+},
+{
+ "name": "Romania",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size": 1.4509e+05 
+},
+{
+ "name": "Nitrogen Solutions",
+"size": 8.1692e+05 
+},
+{
+ "name": "Urea (Solid)",
+"size": 2.5658e+05 
+} 
+] 
+},
+{
+ "name": "Russian Federation",
+"children": [
+ {
+ "name": "Ammonium Nitrate (Solid)",
+"size": 1.24e+05 
+},
+{
+ "name": "Anhydrous Ammonia",
+"size": 4.6955e+05 
+},
+{
+ "name": "Monammonium Phosphate (MAP)",
+"size":   7596 
+},
+{
+ "name": "Nitrogen Solutions",
+"size": 7.0466e+05 
+},
+{
+ "name": "Other Nitrogen Fertilizers",
+"size":   6051 
+},
+{
+ "name": "Potassium Muriate",
+"size": 4.2137e+05 
+} 
+] 
+},
+{
+ "name": "Saudi Arabia",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":  27414 
+},
+{
+ "name": "Urea (Solid)",
+"size": 5.6232e+05 
+} 
+] 
+},
+{
+ "name": "South Korea",
+"children": [
+ {
+ "name": "Chemical Mixtures",
+"size":    212 
+} 
+] 
+},
+{
+ "name": "Spain",
+"children": [
+ {
+ "name": "Calcium Nitrate",
+"size":    308 
+},
+{
+ "name": "Potassium Sulfate",
+"size":   1128 
+} 
+] 
+},
+{
+ "name": "Trinidad And Tobago",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size": 4.9907e+06 
+},
+{
+ "name": "Urea (Solid)",
+"size": 4.8756e+05 
+} 
+] 
+},
+{
+ "name": "Ukraine",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size": 1.2822e+06 
+},
+{
+ "name": "Calcium Nitrate",
+"size":  14701 
+},
+{
+ "name": "Nitrogen Solutions",
+"size": 1.8818e+05 
+} 
+] 
+},
+{
+ "name": "United Arab Emirates",
+"children": [
+ {
+ "name": "Urea (Solid)",
+"size":  30289 
+} 
+] 
+},
+{
+ "name": "United Kingdom",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size":    382 
+},
+{
+ "name": "Calcium Nitrate",
+"size":    303 
+},
+{
+ "name": "Chemical Mixtures",
+"size":   2697 
+},
+{
+ "name": "Normal Super",
+"size":    450 
+},
+{
+ "name": "Potassium Muriate",
+"size":    195 
+} 
+] 
+},
+{
+ "name": "Venezuela",
+"children": [
+ {
+ "name": "Anhydrous Ammonia",
+"size": 1.635e+05 
+},
+{
+ "name": "Sulfur",
+"size": 1.1722e+05 
+},
+{
+ "name": "Urea (Solid)",
+"size": 4.7971e+05 
+} 
+] 
+} 
+] 
+}

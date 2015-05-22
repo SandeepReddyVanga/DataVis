@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+<title>Project Sketch - Data Visualization</title>
+
+<style type="text/css">
+    body {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <div class="container" align="center">
+        <h1>Project Sketch</h1>
+    </div>
+
+    <div class="container" align="right">
+        <h2>Sandeep Vanga</h2>
+    </div>
+
+    <div class="container" align="left">
+
+        <h3>Fertilizer Imports/Exports Data - USA</h3>
+
+        <p> Data Set can be found <a href="https://github.com/SandeepReddyVanga/DataVis/tree/gh-pages/Final_Project/ProjectDataSet">here</a>.</p>
+
+        <h3>Planned Tools</h3>
+
+            <ul style="list-style-type:disc">
+                  <li>Python and R to pre process the data</li>
+                  <li>D3 for developing prototypes</li>
+                  <li>D3 for final visualizations</li>
+            </ul>
+
+        <h3>Planned Techniques</h3>
+
+        <h4>Multi Series Line Chart</h4>
+
+            <ul style="list-style-type:disc">
+                  <li>Time series of total value of each commodity (fertilizer)</li>
+                  <li>It can be either Volume (in tons) or ammount (in dollars)</li>
+                  <li>Import/Exports plots will be shown side by side</li>
+                  <li>This plot gives an overview of changes in the volume/dollar value of each commodity over the time</li>
+            </ul>
+
+        <h4>Choropleth</h4>
+
+            <ul style="list-style-type:disc">
+                  <li>Country wise annual U.S. imports and exports</li>
+                  <li>It can be either volume (in tons) or ammount (in dollars)</li>
+                  <li>Tone of color is used to encode the volume</li>
+                  <li>Either Import or Exports data wil be shown by toggling a button</li>
+                  <li>A slider will be provided to change the time (Year)</li>
+                  <li>Top three commodities by country information is shown on hover</li>
+                  <li>This plot gives an overview of total import/exports volume/dollar value by country</li>
+            </ul>
+
+        <h4>Circle Packing</h4>
+
+            <ul style="list-style-type:disc">
+                  <li>Country wise annual U.S. imports and exports</li>
+                  <li>It can be either volume (in tons) or ammount in dollars</li>
+                  <li>Size fo bubble is used to encode the volume</li>
+                  <li>Either Import or Exports data wil be shown by toggling a button</li>
+                  <li>A slider will be provided to change time (year)</li>
+                  <li>This plot provides information about the contribution of each country, commodity to total import/exports volume/dollar value</li>
+            </ul>
+
+        <h4>Scatter-Plot Matrix and Heat Map</h4>
+
+            <ul style="list-style-type:disc">
+                  <li>Upper Triangle- Scatter plot matrix of annual U.S. imports and exports by commodity (fertilizer)</li>
+                  <li>Lower Triangle - Exact correlations between the commodities</li>
+                  <li>Color is used to code the correlations</li>
+                  <li>It can be either Volume (in tons) or ammount in dollars</li>
+                  <li>Either Import or Exports data wil be shown by toggling a button</li>
+                  <li>A slider will be provided to change the time (Year)</li>
+                  <li>This plot provides insights into co-occurences of commodities</li>
+            </ul>
+
+        <h3>Planned Interaction</h3>
+
+            <ul style="list-style-type:disc">
+                  <li>A button indicating either volume (in tons) or ammount (in dollars) at top level, which is applied to all the visualizations (Linked Interaction)</li>
+                  <li>Details on demand (on hover) for multi series line chart</li>
+                  <li>Linked Import/Exports button for Choropleth and Circle Packing</li>
+                  <li>Linked slider for changing the time (year) for Choropleth and Circle Packing</li>
+                  <li>Details on demand (top 3 commodities for highlighted country) on hover for Choropleth </li>
+                  <li>Highlighting the country/bubble on hover (Linked Interaction) for Choropleth and Circle Packing</li>
+                  <li>Zooming functionality for Scatter-Plot Matrix</li>
+                  <li>Import/Exports button and time slider for Scatter-Plot Matrix</li>
+            </ul>
+
+        <h3>Planned Interface</h3>
+
+        Layout of the proposed visualzation is shown below.
+
+        <p>
+        <img src="./project_layout.jpeg" style="width:800px;height:1150px" >
+        </p>
+
+        <p>Original Data can be found <a href="http://catalog.data.gov/dataset/fertilizer-importsexports">here</a>. Licensing Information can be found <a href="http://www.data.gov/data-policy">here</a>.</p>
+        
+    </div>
+    
+    
+</div>
+
+
+</body>

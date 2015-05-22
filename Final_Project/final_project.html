@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+
+<title>Final Project</title>
+
+<style>
+
+body {
+  font: 14px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+},
+.axis {
+  font: 10px sans-serif;
+},
+.axis1 path,
+.axis1 line {
+  fill: none;
+  stroke: #E6E7E8;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path, .x.axis1 path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+y.axis text {
+    font-family: courier;
+    font-size: 14px;
+}
+
+.legend-box {
+  cursor: pointer;  
+}
+
+#mouse-tracker {
+  stroke: #E6E7E8;
+  stroke-width: 1px;
+}
+
+.btn-group {
+  position: relative;
+  display: inline-block;
+  *display: inline;
+  *margin-left: .3em;
+  font-size: 12px;
+  white-space: nowrap;
+  vertical-align: middle;
+  *zoom: 1;
+  background:gray;
+  color:#fff;
+}
+
+.btn-active-switch{
+  background:#CCCCFF;
+  width: 6em;  
+  height: 3em;
+  font-size: 14px;
+}
+
+.btn-switch{
+  background:#CCFFCC;
+  width: 6em;  
+  height: 3em;
+  font-size: 14px;
+}
+
+.hoverline { 
+  stroke: #E6E7E8;
+  fill: none;
+  stroke-width: 2px;
+  left: 10px;
+  shape-rendering: crispEdges;
+  opacity: 1e-6;
+}
+
+.hovertext {
+  stroke: none;
+  font-size: 30px;
+  font-weight: bold;
+  fill: #000000;
+}
+
+.tooltip {
+  font-weight: normal;
+  text-align: left;
+}
+
+.area {
+  fill: orange;
+  clip-path: url(#clip);
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+.grid .tick {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+  stroke-width: 0;
+}
+
+.container1 {
+  float: left;
+}
+
+.container2 {
+  float: right;
+}
+
+.jumbotron{
+  background-color: lightgray;
+}
+
+/*#slider {
+  position: absolute;
+  left: 50%;
+  margin-left: -300px;
+  bottom: 20px;
+  width: 600px;
+  height: 50px;
+}*/
+
+</style>
+
+<!-- <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="final_project.js"></script>
+<link href="./d3-geomap/css/d3.geomap.css" rel="stylesheet">
+<script src="./d3-geomap/vendor/d3.geomap.dependencies.min.js"></script>
+<script src="./d3-geomap/js/d3.geomap.min.js"></script>
+<script src="http://d3js.org/topojson.v1.min.js"></script> -->
+<!-- <script src="./chroniton_only.js"></script>
+<link href="./chroniton_only.css" rel="stylesheet"> -->
+<!-- <script src="./html5slider.js"></script> -->
+
+
+</head>
+
+<body>
+
+  <div class="row offset">
+        <div class="jumbotron" align="center">
+            <h1>Final Project</h1>
+
+            <div class="container" align="right">
+              <h2>Sandeep Vanga</h2>
+            </div>
+        </div>
+
+        <div class="jumbotron" align = "justify">
+
+          <h2>Visualizations</h2>
+
+          <ul style="list-style-type:disc">
+
+                <li>Hierarchical visualization of Ferilizer Imports/Exports (USA) using "Circle Packing" can be found <a href="./circle_packing.html">here</a></li>
+                <li>Time series visualization of Ferilizer Imports/Exports (USA) using "Multi-Series Line Chart" can be found <a href="./multi_line_series.html">here</a></li>
+                <li>Geo-spatial visualization of Ferilizer Exports (USA) using "Chorpleth" can be found <a href="./choropleth_exports.html">here</a></li>
+          </ul>
+
+          Code for the final project can be found  <a href="http://sandeepreddyvanga.github.io/DataVis/Final_Project/">here.</a>
+          More details about the dataset can be found <a href="http://sandeepreddyvanga.github.io/DataVis/Final_Project/project_dataset.html">here.</a>
+
+        </div>
+
+        <div class="jumbotron" align = "justify">
+
+
+          <h2>Discussion</h2>
+
+            <h3>Techniques</h3>
+
+            I used three different techniques to visualize different aspects of the data set.
+
+              <ul style="list-style-type:disc">
+                  <li>Circle Packing: Hierarchical representation of Ferilizer Imports/Exports (USA) </li>
+                  <li>Multi series line chart: Time series of imports/exports (USA) for each fertilizer </li>
+                  <li>Choropleth: Country wise annual fertilizer exports (USA) </li>
+              </ul>
+
+             <h3>Interactivity</h3>
+
+              <ul style="list-style-type:disc">
+                  <h4>Circle Packing</h4>
+                    <li> Time slider to change the year. Visualization gets updated on mouse release.</li>
+                    <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click. </li>
+                    <li> Zooming functionality to inspect data of particular country. Circle corresponding to a country is highilighted on hover. By clicking on a particular circle, zooming functionality is triggered. Clicking on the same circle again will trigger zoom-out. </li>
+                  <h4>Multi series line chart</h4>
+                    <li> Time slider to change the year. Visualization gets updated on mouse release.</li>
+                    <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click. </li>
+                    <li> Zooming functionality to inspect data of particular country. Circle corresponding to a country is highilighted on hover. By clicking on a particular circle, zooming functionality is triggered. Clicking on the same circle again will trigger zoom-out. </li>
+                  <h4>Choropleth</h4>
+                    <li> Time slider to change the year. Visualization gets updated on mouse release.</li>
+                    <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click. </li>
+                    <li> Zooming functionality to inspect data of particular country. Circle corresponding to a country is highilighted on hover. By clicking on a particular circle, zooming functionality is triggered. Clicking on the same circle again will trigger zoom-out. </li>
+              </ul>
+
+             <h3>Feedback</h3>
+
+             <h3>Challenges</h3>
+
+             <h3>Conclusion</h3>
+           
+
+          </div>
+
+           
+
+        <!-- </div> -->
+
+        <!-- <div class="container1" id="svg1">
+
+          <div class="btn-group" data-toggle="buttons-radio" align = "center">
+            <button type="button" id="imports" class="btn-active-switch">Imports</button>
+            <button type="button" id="exports" class="btn-switch">Exports</button>
+          </div>
+
+          <svg id="area1" width=1300 height=600 ></svg>
+        </div> -->
+
+        <!-- <div class="container2"> -->
+          <!-- <input id="slider" type="range" min="2000" max="2010" value="2000" step="1" onchange="updateSlider(this.value)"/> -->
+          <!-- <span id="range">2000</span> -->
+
+          <!-- <div class="btn-group" data-toggle="buttons-radio" align = "center">
+            <button type="button" id="imports_map" class="btn-active-switch">Imports</button>
+            <button type="button" id="exports_map" class="btn-switch">Exports</button>
+          </div> -->
+
+          <!-- <div id="map1"></div><div id="map2"></div> -->
+          <!-- <svg id="area2" width=1000 height=700 ></svg> -->
+        <!-- </div> -->
+        
+  </div>
+
+  <!-- <div class="row offset">
+       
+      <div class="col-lg-11  col-sm-offset-1" id="svg2" align="center">
+        <svg id="area2" width=1400 height=500 ></svg>
+      </div>
+  </div> -->
+
+</body>
