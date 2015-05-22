@@ -228,6 +228,18 @@ y.axis text {
 
              <h3>Challenges</h3>
 
+             I ran in to multiple issues while implementing the visualizations. Some of the key challenges I faced are listed below.
+
+             <ul style="list-style-type:disc">
+                  <li> The geomap library nees the country codes to be in ISO 3166-1 format. I had to scrape wikipedia for gettign the country codes as the imports/exports data has only country full name information. Even after using some regular expressions tomatch the country names, I had to manually update the country code information as there were some mismatches. </li>
+                  <li> Getting the data in right format was important as some of the visualizations are more friendly with certain type of inputs. For example I had to create json files for implementing circle packing. </li>
+                  <li> Upon adding buttons, I had make sure the previously drawn elemnts are cleared. It took a while for me to get it right. </li>
+                  <li> Triggering the update function using tie slider was tricky. I ried using chroniton library for time slider. But I was n't successful. So, I ended up using html5slider. </li>
+              </ul>
+
+
+
+
              <h3>Conclusion</h3>
            
 
