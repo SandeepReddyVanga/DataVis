@@ -231,14 +231,14 @@ y.axis text {
              I ran in to multiple issues while implementing the visualizations. Some of the key challenges I faced are listed below.
 
              <ul style="list-style-type:disc">
-                  <li> The geomap library nees the country codes to be in ISO 3166-1 format. I had to scrape wikipedia for gettign the country codes as the imports/exports data has only country full name information. Even after using some regular expressions tomatch the country names, I had to manually update the country code information as there were some mismatches. </li>
-                  <li> Getting the data in right format was important as some of the visualizations are more friendly with certain type of inputs. For example I had to create json files for implementing circle packing. </li>
+                  <li> The geomap library expects the country codes to be in ISO 3166-1 format. The orginal data contains only country name information. So, I had to scrape wikipedia page for getting the country codes. Even after using regular expressions to match the country names, some of the country names were n't matching with the ones in wikipedia page. I had to manually update those corner cases. </li>
+                  <li> Getting the data in to right format was important as some of the visualizations are more friendly with certain type of inputs. For example I had to create json files for implementing circle packing and csvs for chorpleth. </li>
                   <li> Upon adding buttons, I had make sure the previously drawn elemnts are cleared. It took a while for me to get it right. </li>
-                  <li> Triggering the update function using tie slider was tricky. I ried using chroniton library for time slider. But I was n't successful. So, I ended up using html5slider. </li>
+                  <li> Triggering the update function using tie slider was tricky. I tried using chroniton library for time slider. But I was n't successful. So, I ended up using html5slider. </li>
+                  <li> I'm using geomap library for choropleth. I tried bringing up time slider and imports data as there were some issues with the data formatting. Though tool-tip picks up the data properly, the legend displays NANs. I could n't fix this issue in time. </li>
+                  <li> I tried to fit imports and exports multi-series plots adjecant to each other. Inspite of multiple attempts, I could n't make it aestetically pleasent. So, I had to implement buttons. </li>
+
               </ul>
-
-
-
 
              <h3>Conclusion</h3>
            
