@@ -531,7 +531,7 @@ d3.csv(csv_file, function(error, data) {
       .attr("y", -20)
       .attr("text-anchor", "middle")  
       .style("font-size", "25px") 
-      .text("Time series of Fertilizer Imports/Exports (USA) - Volume in Million of Tons");
+      .text("Time series of Fertilizer Imports/Exports (USA) - Volume in Tons");
 
   //Add a y-axis label.
   svg.append("text")
@@ -571,6 +571,18 @@ init_multiseries_line("svg1",svg.height.baseVal.value,svg.width.baseVal.value);
 <div class="jumbotron" align = "center" >
 
   <p> This visualization is inspired from <a href="http://bl.ocks.org/DStruths/9c042e3a6b66048b5bd4">here.</a></p>
+
+  <div align = "justify" >
+  <h3> Interactivity</h3>
+    <ul style="list-style-type:disc">
+      <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click.</li>
+      <li> Details on demand using mouse hover. A gray line appears on hover to compare between different time-series (fertilizers). Also the exact values are displayed to the right of legend.</li>
+      <li> Filtering functionality to select different fertilizers. The Y-axis (volume) is automatically adjusted based on the selections.</li>
+    </ul>
+  </div>
+
+  <p> <a href = "https://github.com/SandeepReddyVanga/DataVis/blob/gh-pages/Final_Project/multi_line_series.html" > Source Code </a></p>
+
 </div>
 
 </div>

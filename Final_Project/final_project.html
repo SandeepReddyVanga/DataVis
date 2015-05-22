@@ -8,7 +8,7 @@
 <style>
 
 body {
-  font: 14px sans-serif;
+  font: 18px sans-serif;
 }
 
 .axis path,
@@ -172,9 +172,9 @@ y.axis text {
 
           <ul style="list-style-type:disc">
 
-                <li>Hierarchical visualization of Ferilizer Imports/Exports (USA) using "Circle Packing" can be found <a href="./circle_packing.html">here</a></li>
-                <li>Time series visualization of Ferilizer Imports/Exports (USA) using "Multi-Series Line Chart" can be found <a href="./multi_line_series.html">here</a></li>
-                <li>Geo-spatial visualization of Ferilizer Exports (USA) using "Chorpleth" can be found <a href="./choropleth_exports.html">here</a></li>
+                <li>Hierarchical visualization of Fertilizer Imports/Exports (USA) using "Circle Packing" can be found <a href="./circle_packing.html">here</a></li>
+                <li>Time series visualization of Fertilizer Imports/Exports (USA) using "Multi-Series Line Chart" can be found <a href="./multi_line_series.html">here</a></li>
+                <li>Geo-spatial visualization of Fertilizer Exports (USA) using "Choropleth" can be found <a href="./choropleth_exports.html">here</a></li>
           </ul>
 
           Code for the final project can be found  <a href="https://github.com/SandeepReddyVanga/DataVis/tree/gh-pages/Final_Project/">here.</a>
@@ -189,10 +189,10 @@ y.axis text {
 
             <h3>Techniques</h3>
 
-             I used three different techniques to visualize different aspects of the data set.
+             I used three techniques to visualize different aspects of the data set.
 
               <ul style="list-style-type:disc">
-                  <li>Circle Packing: Hierarchical representation of Ferilizer Imports/Exports (USA) </li>
+                  <li>Circle Packing: Hierarchical representation of Fertilizer Imports/Exports (USA) </li>
                   <li>Multi series line chart: Time series of imports/exports (USA) for each fertilizer </li>
                   <li>Choropleth: Country wise annual fertilizer exports (USA) </li>
               </ul>
@@ -207,16 +207,16 @@ y.axis text {
                   <h4>Multi series line chart</h4>
                     <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click.</li>
                     <li> Details on demand using mouse hover. A gray line appears on hover to compare between different time-series (ferilizers). Also the exact values are displayed to the right of legend.</li>
-                    <li> Filtering functionality to select different fertilizers. The Y axis (volume) is automatically adjusted based on the selections.</li>
+                    <li> Filtering functionality to select different fertilizers. The Y-axis (volume) is automatically adjusted based on the selections.</li>
                   <h4>Choropleth</h4>
-                    <li> This choropleth represents the data from year 2010.</li>
-                    <li> By keeping muse pointer on particular country for a while, the exact volume of exports is displayed over the years to compare with the export volume of the year 2010.</li>
-                    <li> Zoom-in is implemented on mouse click.</li>
+                    <li> This choropleth represents the exports data from year 2010.</li>
+                    <li> By keeping mouse pointer on particular country for a while, the exact volume of exports is displayed from 1990 through 2012 so that we can compare them with the export volume of the year 2010.</li>
+                    <li> Zoom-in functionality is implemented using mouse click. Again a mouse click while the map is already in zoomed mode triggers zoom-out.</li>
               </ul>
 
              <h3>Feedback</h3>
 
-             As I implemented only multi-series line as part of prototype, I recieved feedback on only multi-series plot.
+             As I implemented multi-series line as part of prototype, I received feedback on multi-series line plot only.
 
              <ul style="list-style-type:disc">
                   <li> As suggested, I moved the text (exact volume on hover) to right of legend and adjusted the legend position accordingly. </li>
@@ -232,11 +232,11 @@ y.axis text {
 
              <ul style="list-style-type:disc">
                   <li> The geomap library expects the country codes to be in ISO 3166-1 format. The orginal data contains only country name information. So, I had to scrape wikipedia page for getting the country codes. Even after using regular expressions to match the country names, some of the country names were n't matching with the ones in wikipedia page. I had to manually update those corner cases. </li>
-                  <li> Getting the data in to right format was important as some of the visualizations are more friendly with certain type of inputs. For example I had to create json files for implementing circle packing and csvs for chorpleth. </li>
-                  <li> Upon adding buttons, I had make sure the previously drawn elemnts are cleared. It took a while for me to get it right. </li>
+                  <li> Getting the data in to right format was important as some of the visualizations are more friendly with certain type of inputs. For example I had to create JSON files for implementing circle packing and CSVs for chorpleth. </li>
+                  <li> Upon adding buttons, I had to make sure previously drawn elemnts are cleared out completely. It took a while for me to get it right. </li>
                   <li> Triggering the update function using tie slider was tricky. I tried using chroniton library for time slider. But I was n't successful. So, I ended up using html5slider. </li>
-                  <li> I'm using geomap library for choropleth. I tried bringing up time slider and imports data as there were some issues with the data formatting. Though tool-tip picks up the data properly, the legend displays NANs. I could n't fix this issue in time. </li>
-                  <li> I tried to fit imports and exports multi-series plots adjecant to each other. Inspite of multiple attempts, I could n't make it aestetically pleasent. So, I had to implement buttons. </li>
+                  <li> I'm using geomap library for choropleth. In addition to exports data I tried bringing up imports data as well. Also, I tried implementing a time slider. As there were some issues with the data formatting, I was n't successful. Though tool-tip (on mouse hover) picks up the data properly, the legend displays NANs. I could n't fix this issue in time. </li>
+                  <li> I tried to place imports and exports multi-series line plots adjecant to each other. Inspite of multiple attempts, I could n't make it aestetically pleasent. So, I had to implement buttons to switch between imports and exports instead. </li>
 
               </ul>
 

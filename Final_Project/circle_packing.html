@@ -12,7 +12,7 @@
 <style>
 
 body {
-  font: 26px sans-serif;
+  font: 20px sans-serif;
 }
 
 
@@ -56,7 +56,7 @@ body {
 #range {
   position: absolute;
   left: 47%;
-  top: 90px;
+  top: 85px;
   margin-left: -300px;
   /*bottom: 20px;*/
   color: brown;
@@ -73,7 +73,7 @@ body {
 
 <div class="jumbotron" align = "center" >
 
-  <p> Hierarchical representation of fertilizer Imports/Exports (USA) </p>
+  <p> Hierarchical representation of Fertilizer Imports/Exports (USA) </p>
 </div>
 
 </div>
@@ -259,6 +259,18 @@ d3.select(self.frameElement).style("height", (diameter-margin) + "px");
 <div class="jumbotron" align = "center" >
 
   <p> This visualization is inspired from <a href="http://bl.ocks.org/chule/74e95deeadd353e42034">here.</a></p>
+
+  <div align = "justify" >
+  <h3> Interactivity</h3>
+    <ul style="list-style-type:disc">
+      <li> Time slider to change the year. Visualization gets updated on mouse release.</li>
+      <li> Button to switch between Imports and Exports. Visualization gets updated on mouse click. </li>
+      <li> Zooming functionality to inspect data of particular country. Circle corresponding to a country is highilighted on hover. By clicking on a particular circle, zooming functionality is triggered. Clicking on the same circle again will trigger zoom-out. </li>
+    </ul>
+  </div>
+
+  <p> <a href = "https://github.com/SandeepReddyVanga/DataVis/blob/gh-pages/Final_Project/circle_packing.html" > Source Code </a></p>
+
 </div>
 
 </div>
